@@ -11,8 +11,6 @@ const Home = () => {
   const [dropdown, setDropdown] = useState(true);
   const [link_tags, setLinkTags] = useState([]);
 
-  console.log = console.warn = console.error = () => {};
-
   useEffect(() => {
     function fetchData() {
       fetch("https://opomboapi.vercel.app/app/index.json")
