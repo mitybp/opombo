@@ -16,11 +16,11 @@
 ::-webkit-scrollbar {
   width: 14px;
   background-color: transparent;
+  border-left: 1px solid #ccc;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #f4f4f4;
-  border: 1px solid #ccc;
+  background-color: #ccc;
   border-radius: 4px;
   cursor: pointer;
 }
@@ -32,7 +32,7 @@
   font-family: 'Poppins', Arial;
 }
 ::selection{
-  background-color: #2758b332;
+  background-color: #2758b34b;
 }
 
 /** Links */
@@ -102,6 +102,7 @@ a.link_gray{
   background-color: #fff;
   z-index: 999;
   border-bottom: 1px solid #ccc;
+  box-shadow: 0 8px 4px -8px #ccc;
 }
 .header-logo{
   display: flex;
@@ -136,6 +137,7 @@ a.link_gray{
   flex-direction: column;
   gap: 10px;
   z-index: 999;
+  box-shadow: 0 0 8px #ccc;
 }
 .header-menu-link{
   color: #222;
@@ -148,20 +150,39 @@ a.link_gray{
   align-items: center;
   height: 40px;
 }
-.search-btn-delete{
+.search-btn{
   background-color: #f4f4f4;
   width: 40px;
   height: 40px;
   border: 1px solid #ccc;
-  border-right: 0;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
   outline: none;
+  border-right: 0;
   font-size: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+.search-dropdown{
+  display: flex;
+  flex-direction: column;
+  max-width: 8rem;
+  padding: 10px;
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+.search-dropdown button{
+  background-color: transparent;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+}
+.search-dropdown button:first-child{
+  border-bottom: 1px solid #ccc;
 }
 .search-inp{
   height: 40px;
@@ -318,6 +339,26 @@ main{
   border-radius: 8px;
   color: #000;
   text-decoration: none;
+}
+
+/** Ferramentas Mat  */
+.tools-inp-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.tools-inp-container:nth-child(2){
+  margin-block: 10px;
+}
+.tools-inp-container input, .tools-inp{
+  height: 40px;
+  padding: 10px;
+  border: 1px solid;
+  outline: none;
+  border: 1px solid #ccc;
+  background-color: #f4f4f4;
+  border-radius: 8px;
 }
 
 /** Media query  */

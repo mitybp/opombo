@@ -24,10 +24,7 @@ const Authors = () => {
       </div>
       <div className="card-list">
         {authors.reverse().map((a) => (
-          <a
-            className="card card-author"
-            href={`/${strFormat(a[0])}`}
-          >
+          <a className="card card-author" href={`/${strFormat(a[0])}`}>
             {a[0]}
           </a>
         ))}

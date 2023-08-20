@@ -25,11 +25,11 @@ const Home = () => {
     fetchData();
   });
 
-  document.title="O Pombo - o verdadeiro jornal do Colégio Integral";
+  document.title = "O Pombo - o verdadeiro jornal do Colégio Integral";
 
   return (
     <main>
-      <Header/>
+      <Header />
       <Tabs>
         <div>
           <button
@@ -40,7 +40,7 @@ const Home = () => {
           </button>
         </div>
         <TabList
-          style={{display: dropdown ? "flex" : "none"}}
+          style={{ display: dropdown ? "flex" : "none" }}
           className="home-tab-tags-list"
         >
           {link_tags.map((tt) => {
@@ -49,7 +49,7 @@ const Home = () => {
                 key={tt[0]}
                 style={{
                   backgroundColor: tt[0] === actTag ? tt[1] : "transparent",
-                  borderColor: tt[0] === actTag ? tt[1] : "#ccc"
+                  borderColor: tt[0] === actTag ? tt[1] : "#ccc",
                 }}
                 className="home-tab-tag-btn"
                 onClick={() => setActTag(tt[0])}
