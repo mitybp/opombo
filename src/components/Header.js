@@ -50,6 +50,9 @@ const Header = () => {
           <a href="/autores" className="header-menu-link">
             Autores
           </a>
+          <a href="/projeto-doce-solidario" className="header-menu-link">
+            Projeto Doce Solidário
+          </a>
           <a
             target="_blank"
             href="https://instagram.com/opombo.jornal"
