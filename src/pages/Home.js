@@ -25,7 +25,7 @@ const Home = () => {
     fetchData();
   });
 
-  document.title = "O Pombo - o verdadeiro jornal do Colégio Integral";
+  document.title = "Jornal O Pombo";
 
   return (
     <main>
