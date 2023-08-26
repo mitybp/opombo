@@ -11,6 +11,7 @@ import Bio from "./pages/Bio";
 import Search from "./pages/Search";
 import Erro404 from "./pages/Erro404";
 import DoceSolidario from "./pages/DoceSolidario";
+import Blog from "./pages/Blog";
 
 function App() {
   if (localStorage.getItem("saved") == null)
@@ -50,6 +51,12 @@ function App() {
           path="/projeto-doce-solidario/"
           element={<DoceSolidario />}
           errorElement={<Erro404 />}
+        />
+        {/* Blog */}
+        <Route
+          path="/blog"
+          element={<Blog/>}
+          errorElement={<Erro404/>}
         />
         <Route path="*" element={<Erro404 />} />
       </Routes>
