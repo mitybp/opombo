@@ -74,7 +74,7 @@ const Home = () => {
                   key={id}
                   post={posts[0].id === 0 ? posts[id] : posts.reverse()[id]}
                 />
-              ))}
+              )).reverse()}
             </TabPanel>
           );
         })}
