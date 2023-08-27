@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
 import Header from "../components/Header";
+import Loading from "../components/Loading";
 
 const Blog = () => {
-  const [post, setPost] = useState([]);
+  const [posts, setPosts] = useState([]);
   useEffect(() => {
     fetch("https://opomboapi.vercel.app/app/index.json")
       .then((res) => res.json())
       .then((dt) => {
         dt["blog"][0]["id"] === 0
-          ? setPost(dt["blog"])
-          : setPost(dt["blog"].reverse());
+          ? setPosts(dt["blog"].reverse())
+          : setPosts(dt["blog"]);
       });
   });
 
@@ -21,7 +22,7 @@ const Blog = () => {
         <h1>Blog</h1>
       </div>
       <div className="card-list">
-        {post.map((p) => (
+        {posts.map((p) => (
           <div className="card card-author">
             <h3>{p.title}</h3>
             <p>{p.content}</p>
@@ -29,6 +30,7 @@ const Blog = () => {
           </div>
         ))}
       </div>
+      <Loading visible={posts.length===0?true:false}/>
     </main>
   );
 };

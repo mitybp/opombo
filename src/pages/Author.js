@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Header from "../components/Header";
 import Card from "../components/Card";
 import { strFormat } from "../api/strFormat";
+import Loading from "../components/Loading";
 
 const Author = () => {
   const { author_name } = useParams();
@@ -26,7 +27,7 @@ const Author = () => {
     fetchData();
   });
 
-  document.title = `${author[0]} - O Pombo Jornal`;
+  document.title = `${author[0]?author[0]:'Autor não encontrado'} - O Pombo Jornal`;
 
   return (
     <main>
@@ -39,6 +40,7 @@ const Author = () => {
           ? author[1].reverse().map((id) => <Card post={posts[id]} />)
           : "Não foi possível encontrar o autor"}
       </div>
+      <Loading visible={posts.length===0?true:false}/>
     </main>
   );
 };

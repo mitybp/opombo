@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Header from "../components/Header";
 import ScrollIndictor from "../components/ScrollIndictor";
+import Loading from "../components/Loading";
 import { card_colors } from "../api";
+import { Copy } from "@phosphor-icons/react";
 
 const Post = () => {
   const { post_author, post_title } = useParams();
@@ -31,7 +33,7 @@ const Post = () => {
       : setMinuteRead(0);
   });
 
-  document.title = `${data.title} - ${data.author} - O Pombo Jornal`;
+  document.title = data.title?`${data.title} - ${data.author} - O Pombo Jornal`:"Postagem não encontrada - O Pombo Jornal";
 
   return (
     <main>
@@ -56,26 +58,43 @@ const Post = () => {
               </a>{" "}
               ・ {data.date}・ {minuteRead} min de leitura
             </p>
-            <button
-              className="post-info post-save"
-              onClick={() => {
-                if (localStorage.getItem("saved") == null)
-                  localStorage.setItem("saved", "[]");
-                let saved = JSON.parse(localStorage.getItem("saved"));
+            <div className="post-info" style={{display: 'flex', gap: 10}}>
+              <button
+                className="post-save"
+                onClick={() => {
+                  if (localStorage.getItem("saved") == null)
+                    localStorage.setItem("saved", "[]");
+                  let saved = JSON.parse(localStorage.getItem("saved"));
 
-                if (saved.includes(data.id)) {
-                  saved.splice(saved.indexOf(data.id), 1);
-                  localStorage.setItem("saved", JSON.stringify(saved));
-                } else {
-                  saved.push(data.id);
-                  localStorage.setItem("saved", JSON.stringify(saved));
-                }
-              }}
-            >
-              {JSON.parse(localStorage.getItem("saved")).includes(data.id)
-                ? "Remover dos salvos"
-                : "Salvar matéria"}
-            </button>
+                  if (saved.includes(data.id)) {
+                    saved.splice(saved.indexOf(data.id), 1);
+                    localStorage.setItem("saved", JSON.stringify(saved));
+                  } else {
+                    saved.push(data.id);
+                    localStorage.setItem("saved", JSON.stringify(saved));
+                  }
+                }}
+              >
+                {JSON.parse(localStorage.getItem("saved")).includes(data.id)
+                  ? "Remover dos salvos"
+                  : "Salvar matéria"}
+              </button>
+              <button
+              className="post-save"
+                style={{
+                  width: 40,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: 0
+                }}
+                onClick={()=>{
+                  navigator.clipboard.writeText(`https://bit.ly/opombo-${data.id}`);
+                  alert("Copiado!")
+                }}>
+                <Copy size={18}/>
+              </button>
+            </div>
           </div>
           <div className="resp-container">
             {String(data.content)
@@ -109,6 +128,7 @@ const Post = () => {
           <p>Não foi possível encontrar a postagem</p>
         </div>
       )}
+      <Loading visible={data?false:true}/>
     </main>
   );
 };

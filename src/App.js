@@ -59,6 +59,7 @@ function App() {
           errorElement={<Erro404/>}
         />
         <Route path="*" element={<Erro404 />} />
+        <Route path="/pagina-nao-encontrada" element={<Erro404 />} />
       </Routes>
     </BrowserRouter>
   );

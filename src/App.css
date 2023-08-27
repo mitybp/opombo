@@ -35,6 +35,21 @@
   background-color: #2758b34b;
 }
 
+/** Loading */
+.loading{
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffffaa;
+}
+.loading h1{
+  background-color: var(--descricao);
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
 /** Links */
 a{
   color: #2758b3;

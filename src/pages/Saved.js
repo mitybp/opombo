@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Card from "../components/Card";
+import Loading from "../components/Loading";
 
 const Saved = () => {
   const [posts, setPosts] = useState([]);
@@ -37,6 +38,7 @@ const Saved = () => {
           saved.map((id) => <Card post={posts[id]} />)
         )}
       </div>
+      <Loading visible={posts.length===0?true:false}/>
     </main>
   );
 };

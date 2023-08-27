@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import { strFormat } from "../api/strFormat";
+import Loading from "../components/Loading";
 
 const Authors = () => {
   const [authors, setAuthors] = useState([]);
@@ -29,6 +30,7 @@ const Authors = () => {
           </a>
         ))}
       </div>
+      <Loading visible={authors.length===0?true:false}/>
     </main>
   );
 };

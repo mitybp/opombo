@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Card from "../components/Card";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { CaretDown, CaretUp } from "@phosphor-icons/react";
+import Loading from "../components/Loading";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -79,6 +80,7 @@ const Home = () => {
           );
         })}
       </Tabs>
+      <Loading visible={posts.length===0?true:false}/>
     </main>
   );
 };

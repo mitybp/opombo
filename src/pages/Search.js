@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import { FunnelSimple } from "@phosphor-icons/react";
 import Card from "../components/Card";
+import Loading from "../components/Loading";
 
 const Search = () => {
   const [posts, setPosts] = useState([]);
@@ -59,6 +60,7 @@ const Search = () => {
             })
           : "Digite algo para pesquisar"}
       </div>
+      <Loading visible={posts.length===0?true:false}/>
     </main>
   );
 };
