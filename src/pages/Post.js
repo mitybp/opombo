@@ -79,7 +79,7 @@ const Post = () => {
                   ? "Remover dos salvos"
                   : "Salvar matéria"}
               </button>
-          
+          </div>
           <div className="resp-container">
             {String(data.content)
               .split("<br/>")
