@@ -58,9 +58,9 @@ const Post = () => {
               </a>{" "}
               ・ {data.date}・ {minuteRead} min de leitura
             </p>
-            <div className="post-info" style={{display: 'flex', gap: 10}}>
+            
               <button
-                className="post-save"
+                className="post-save post-info"
                 onClick={() => {
                   if (localStorage.getItem("saved") == null)
                     localStorage.setItem("saved", "[]");
@@ -79,23 +79,7 @@ const Post = () => {
                   ? "Remover dos salvos"
                   : "Salvar matéria"}
               </button>
-              <button
-              className="post-save"
-                style={{
-                  width: 40,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  padding: 0
-                }}
-                onClick={()=>{
-                  navigator.clipboard.writeText(`https://bit.ly/opombo-${data.id}`);
-                  alert("Copiado!")
-                }}>
-                <Copy size={18}/>
-              </button>
-            </div>
-          </div>
+          
           <div className="resp-container">
             {String(data.content)
               .split("<br/>")
