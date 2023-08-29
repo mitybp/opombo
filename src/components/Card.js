@@ -1,28 +1,28 @@
 import { strFormat } from "../api/strFormat";
 import { card_colors, card_tagsUpper } from "../api";
+import { CardContainer, CardTag, CardTitle } from "../styled";
 
 const Card = ({ post }) => {
   return (
-    <div className="card">
-      <p className="card-tag" style={{ backgroundColor: card_colors[post.tag] }}>
+    <CardContainer>
+      <CardTag style={{ backgroundColor: card_colors[post.tag] }}>
         {card_tagsUpper[post.tag]}
-      </p>
-      <a
-        className="card-title"
+      </CardTag>
+      <CardTitle
         href={`/${strFormat(post.author)}/${strFormat(post.title)}`}
       >
         {post.title}
-      </a>
+      </CardTitle>
       <p>
         <a
-          className="link_gray"
+          style={{color: '#222'}}
           href={`/${strFormat(post.author)}`}
         >
           {post.author}
         </a>{" "}
         ・ {post.date}
       </p>
-    </div>
+    </CardContainer>
   );
 };
 

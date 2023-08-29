@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import ScrollIndictor from "../components/ScrollIndictor";
 import Loading from "../components/Loading";
 import { card_colors } from "../api";
-import { Copy } from "@phosphor-icons/react";
+import { PostHeader, PostTag, PostSaveButton, PostTitle, PostInfo, Container, PostCredit } from "../styled";
 
 const Post = () => {
   const { post_author, post_title } = useParams();
@@ -41,15 +41,14 @@ const Post = () => {
       <ScrollIndictor color={card_colors[data.tag]} />
       {data.title !== undefined ? (
         <div>
-          <div className="post-header">
-            <p
-              className="post-tag"
+          <PostHeader>
+            <PostTag
               style={{ backgroundColor: card_colors[data.tag] }}
             >
               {tagUpper[data.tag]}
-            </p>
-            <h1 className="post-title">{data.title}</h1>
-            <p className="post-info">
+            </PostTag>
+            <PostTitle>{data.title}</PostTitle>
+            <PostInfo>
               <a
                 style={{ color: "#444", textDecoration: "none" }}
                 href={`/${post_author}`}
@@ -57,10 +56,9 @@ const Post = () => {
                 {data.author}
               </a>{" "}
               ・ {data.date}・ {minuteRead} min de leitura
-            </p>
-            
-              <button
-                className="post-save post-info"
+            </PostInfo>
+            <PostInfo>
+              <PostSaveButton
                 onClick={() => {
                   if (localStorage.getItem("saved") == null)
                     localStorage.setItem("saved", "[]");
@@ -78,13 +76,14 @@ const Post = () => {
                 {JSON.parse(localStorage.getItem("saved")).includes(data.id)
                   ? "Remover dos salvos"
                   : "Salvar matéria"}
-              </button>
-          </div>
-          <div className="resp-container">
+              </PostSaveButton>
+            </PostInfo>
+          </PostHeader>
+          <Container>
             {String(data.content)
               .split("<br/>")
               .map((p) => (
-                <p key={p} className="p">
+                <p key={p}>
                   {p}
                 </p>
               ))}
@@ -92,20 +91,13 @@ const Post = () => {
             <h2>Creditos</h2>
             {data.creditos
               ? data.creditos.map((a) => (
-                  <p
-                    className="creditos"
-                    style={{
-                      borderBottom:
-                        data.creditos.indexOf(a) === data.creditos.length - 1
-                          ? "none"
-                          : "1px solid #ccc",
-                    }}
+                  <PostCredit
                   >
                     {a[0]}: {a[1]}
-                  </p>
+                  </PostCredit>
                 ))
               : ""}
-          </div>
+          </Container>
         </div>
       ) : (
         <div className="resp-container">

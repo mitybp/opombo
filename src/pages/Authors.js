@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import { strFormat } from "../api/strFormat";
 import Loading from "../components/Loading";
+import { Container, CardList, CardSimple } from "../styled";
 
 const Authors = () => {
   const [authors, setAuthors] = useState([]);
@@ -20,16 +21,16 @@ const Authors = () => {
   return (
     <main>
       <Header />
-      <div className="resp-container">
+      <Container>
         <h1>Autores</h1>
-      </div>
-      <div className="card-list">
+      </Container>
+      <CardList>
         {authors.reverse().map((a) => (
-          <a className="card card-author" href={`/${strFormat(a[0])}`}>
+          <CardSimple href={`/${strFormat(a[0])}`}>
             {a[0]}
-          </a>
+          </CardSimple>
         ))}
-      </div>
+      </CardList>
       <Loading visible={authors.length===0?true:false}/>
     </main>
   );

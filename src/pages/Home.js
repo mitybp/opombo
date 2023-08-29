@@ -4,6 +4,7 @@ import Card from "../components/Card";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { CaretDown, CaretUp } from "@phosphor-icons/react";
 import Loading from "../components/Loading";
+import { HomeDivisor, HomeDropdownButton } from "../styled";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -33,12 +34,11 @@ const Home = () => {
       <Header />
       <Tabs>
         <div>
-          <button
+          <HomeDropdownButton
             onClick={() => setDropdown(!dropdown)}
-            className="home-dropdown-btn"
           >
             {dropdown ? <CaretUp /> : <CaretDown />} {actTag}
-          </button>
+          </HomeDropdownButton>
         </div>
         <TabList
           style={{ display: dropdown ? "flex" : "none" }}
@@ -60,16 +60,16 @@ const Home = () => {
             );
           })}
         </TabList>
-        <div className="home-line"></div>
+        <HomeDivisor/>
 
-        <TabPanel key={0} className="card-list home">
+        <TabPanel key={0} className="home-card-list">
           {posts.map((p) => (
             <Card key={p.id} post={p} />
           ))}
         </TabPanel>
         {tags.map((tt) => {
           return (
-            <TabPanel key={tags.indexOf(tt) + 1} className="card-list home">
+            <TabPanel key={tags.indexOf(tt) + 1} className="home-card-list">
               {tt.ids.map((id) => (
                 <Card
                   key={id}

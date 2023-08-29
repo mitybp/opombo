@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Card from "../components/Card";
 import { strFormat } from "../api/strFormat";
 import Loading from "../components/Loading";
+import { Container, CardList } from "../styled";
 
 const Author = () => {
   const { author_name } = useParams();
@@ -32,14 +33,14 @@ const Author = () => {
   return (
     <main>
       <Header />
-      <div className="resp-container">
+      <Container>
         <h1>{author[0]}</h1>
-      </div>
-      <div className="card-list">
+      </Container>
+      <CardList>
         {author[1]
           ? author[1].reverse().map((id) => <Card post={posts[id]} />)
           : "Não foi possível encontrar o autor"}
-      </div>
+      </CardList>
       <Loading visible={posts.length===0?true:false}/>
     </main>
   );

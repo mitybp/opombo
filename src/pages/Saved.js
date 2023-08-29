@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Card from "../components/Card";
 import Loading from "../components/Loading";
+import { Container, CardList } from "../styled";
 
 const Saved = () => {
   const [posts, setPosts] = useState([]);
@@ -28,16 +29,16 @@ const Saved = () => {
   return (
     <main>
       <Header />
-      <div className="resp-container">
+      <Container>
         <h1>Salvos</h1>
-      </div>
-      <div className="card-list">
+      </Container>
+      <CardList>
         {saved.length == 0 ? (
           <p>Você não salvou algo ainda!</p>
         ) : (
           saved.map((id) => <Card post={posts[id]} />)
         )}
-      </div>
+      </CardList>
       <Loading visible={posts.length===0?true:false}/>
     </main>
   );

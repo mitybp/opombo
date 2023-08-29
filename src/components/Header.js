@@ -1,71 +1,65 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { List, X } from "@phosphor-icons/react";
+import { HeaderContainer, HeaderLogo, HeaderMenuButton, HeaderMenuContent, HeaderMenuLink } from "../styled";
 
 const Header = () => {
   const [ddState, setDdState] = useState(false);
 
   return (
-    <div
-      className="header-container"
-      style={{ padding: window.innerWidth <= 500 ? "0 10px" : "0 40px" }}
-    >
-      <Link to="/" className="header-logo">
+    <HeaderContainer>
+      <HeaderLogo href="/">
         <img
           src="https://opomboapi.vercel.app/logo-circle.png"
           style={{ width: 55 }}
           alt="logo"
         />
-        <span style={{ display: window.innerWidth <= 400 ? "none" : "block" }}>
+        <span>
           O Pombo
         </span>
-      </Link>
-      <div className="dd">
-        <button
+      </HeaderLogo>
+      <div>
+        <HeaderMenuButton
           onClick={() => setDdState(!ddState)}
-          className="header-menu-btn"
         >
           {ddState ? (
             <X style={{ transform: "translateY(2px)" }} />
           ) : (
             <List style={{ transform: "translateY(2px)" }} />
           )}
-        </button>
-        <div
-          className="header-menu-content"
+        </HeaderMenuButton>
+        <HeaderMenuContent
           style={{
             right: window.innerWidth <= 500 ? 10 : 40,
             display: ddState ? "flex" : "none",
           }}
         >
-          <a href="/sobre" className="header-menu-link">
+          <HeaderMenuLink href="/sobre">
             Sobre
-          </a>
-          <a href="/pesquisar" className="header-menu-link">
+          </HeaderMenuLink>
+          <HeaderMenuLink href="/pesquisar">
             Pesquisar
-          </a>
-          <a href="/salvos" className="header-menu-link">
+          </HeaderMenuLink>
+          <HeaderMenuLink href="/salvos">
             Salvos
-          </a>
-          <a href="/autores" className="header-menu-link">
+          </HeaderMenuLink>
+          <HeaderMenuLink href="/autores">
             Autores
-          </a>
-          <a href="/projeto-doce-solidario" className="header-menu-link">
+          </HeaderMenuLink>
+          <HeaderMenuLink href="/projeto-doce-solidario">
             Projeto Doce Solidário
-          </a>
-          <a href="/blog" className="header-menu-link">
+          </HeaderMenuLink>
+          <HeaderMenuLink href="/blog">
             Blog
-          </a>
-          <a
+          </HeaderMenuLink>
+          <HeaderMenuLink
             target="_blank"
             href="https://instagram.com/opombo.jornal"
-            className="header-menu-link"
           >
             Instagram
-          </a>
-        </div>
+          </HeaderMenuLink>
+        </HeaderMenuContent>
       </div>
-    </div>
+    </HeaderContainer>
   );
 };
 

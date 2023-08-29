@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Loading from "../components/Loading";
+import { Container, CardList, CardSimple } from "../styled";
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
@@ -18,18 +19,18 @@ const Blog = () => {
   return (
     <main>
       <Header />
-      <div className="resp-container">
+      <Container>
         <h1>Blog</h1>
-      </div>
-      <div className="card-list">
+      </Container>
+      <CardList>
         {posts.map((p) => (
-          <div className="card card-author">
+          <CardSimple>
             <h3>{p.title}</h3>
             <p>{p.content}</p>
             <i style={{ marginTop: 10, fontSize: 15 }}>{p.date}</i>
-          </div>
+          </CardSimple>
         ))}
-      </div>
+      </CardList>
       <Loading visible={posts.length===0?true:false}/>
     </main>
   );

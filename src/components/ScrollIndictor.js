@@ -1,4 +1,5 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect} from 'react';
+import { ScrollIndictorContainer } from '../styled';
 
 const ScrollIndictor = ({color}) => {
     let [w, setW] = useState(0);
@@ -10,7 +11,7 @@ const ScrollIndictor = ({color}) => {
         }
     })
   return (
-    <div className='scrollindicator-container'>
+    <ScrollIndictorContainer>
         <div
             style={{
                 height: 8,
@@ -20,7 +21,7 @@ const ScrollIndictor = ({color}) => {
                 borderBottomRightRadius: 4
             }}
         ></div>
-    </div>
+    </ScrollIndictorContainer>
   )
 }
 

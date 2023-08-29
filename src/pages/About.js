@@ -1,11 +1,12 @@
 import Header from "../components/Header";
+import { Container } from "../styled";
 
 const About = () => {
   document.title = "Sobre - O Pombo Jornal";
   return (
     <main>
       <Header />
-      <div className="resp-container">
+      <Container>
         <h1>Sobre nós</h1>
         <p>
           Por meio de uma proposta com o intuito de veicular as principais
@@ -21,7 +22,7 @@ const About = () => {
           informações, dados e fontes, ao mesmo tempo em que trabalha
           diariamente na checagem dos mesmos, evitando as famosas fake-news.
         </p>
-      </div>
+      </Container>
     </main>
   );
 };

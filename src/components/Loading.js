@@ -1,10 +1,10 @@
-import React from "react";
+import { LoadingContainer } from "../styled";
 
 const Loading = ({visible}) => {
   return (
-    <div className="loading" style={{display: visible?'flex':'none'}}>
+    <LoadingContainer style={{display: visible?'flex':'none'}}>
         <h1>Carregando banco de dados...</h1>
-    </div>
+    </LoadingContainer>
   );
 };
 

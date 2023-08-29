@@ -1,11 +1,12 @@
 import Header from "../components/Header";
+import { Button, Container } from "../styled";
 
 const DoceSolidario = () => {
   document.title = "Projeto Doce Solidário - O Pombo";
   return (
     <main>
       <Header />
-      <div className="resp-container">
+      <Container>
         <h1>Projeto Doce Solidário</h1>
         <p>
           O Projeto Doce Solidário é uma iniciativa promovida pelo Jornal O Pombo, do Colégio Integral, com o objetivo de arrecadar fundos para a ONG Mãos Invisíveis. Essa ação solidária busca unir a comunidade escolar em prol de uma causa nobre, proporcionando uma oportunidade de ajudar aqueles que mais precisam.
@@ -22,14 +23,13 @@ const DoceSolidario = () => {
         <p>
           O Projeto Doce Solidário é uma oportunidade não apenas de ajudar financeiramente, mas também de promover a conscientização sobre a importância de se engajar em ações sociais e de cultivar valores como solidariedade, generosidade e compaixão. É uma iniciativa que fortalece os laços da comunidade escolar e contribui para a construção de um mundo mais justo e igualitário.
         </p>
-        <a
+        <Button
           href="https://maosinvisiveis.com.br/#secao-ajude-fazendo-uma-doacao"
           target="_blank"
-          className="button-large"
         >
           Apoie o Mãos Invisíveis
-        </a>
-      </div>
+        </Button>
+      </Container>
     </main>
   );
 };

@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import { FunnelSimple } from "@phosphor-icons/react";
 import Card from "../components/Card";
 import Loading from "../components/Loading";
+import { Container, SearchInputContainer, SearchButton, SearchInput, SearchDropdown, CardList } from "../styled";
 
 const Search = () => {
   const [posts, setPosts] = useState([]);
@@ -23,31 +24,27 @@ const Search = () => {
   return (
     <main>
       <Header />
-      <div className="resp-container">
+      <Container>
         <h1>Pesquisar</h1>
-        <div>
-          <div className="search-inp-container">
-            <button className="search-btn" onClick={() => setDdState(!ddState)}>
-              <FunnelSimple />
-            </button>
-            <input
-              type="text"
-              placeholder={`Pesquisar por ${byTitle ? "título" : "conteúdo"}`}
-              className="search-inp"
-              onChange={(e) => setInp(e.target.value)}
-              value={inp}
-            />
-          </div>
-          <div
-            className="search-dropdown"
-            style={{ display: ddState ? "flex" : "none" }}
-          >
-            <button onClick={() => setInp("")}>Apagar</button>
-            <button onClick={() => setByTitle(!byTitle)}>Mudar filtro</button>
-          </div>
-        </div>
-      </div>
-      <div className="card-list">
+        <SearchInputContainer>
+          <SearchButton onClick={() => setDdState(!ddState)}>
+            <FunnelSimple />
+          </SearchButton>
+          <SearchInput
+            type="text"
+            placeholder={`Pesquisar por ${byTitle ? "título" : "conteúdo"}`}
+            onChange={(e) => setInp(e.target.value)}
+            value={inp}
+          />
+        </SearchInputContainer>
+        <SearchDropdown
+          style={{ display: ddState ? "flex" : "none" }}
+        >
+          <button onClick={() => setInp("")}>Apagar</button>
+          <button onClick={() => setByTitle(!byTitle)}>Mudar filtro</button>
+        </SearchDropdown>
+      </Container>
+      <CardList>
         {inp
           ? posts.map((p) => {
               if (byTitle) {
@@ -59,7 +56,7 @@ const Search = () => {
               }
             })
           : "Digite algo para pesquisar"}
-      </div>
+      </CardList>
       <Loading visible={posts.length===0?true:false}/>
     </main>
   );
