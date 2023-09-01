@@ -4,13 +4,11 @@ import styled from 'styled-components';
 export const Container = styled.div`
     text-align: justify;
     margin: 20px 20% 40px 20%;
+    font-size: 18px;
 
     &p{
         padding: 4px 0;
         font-size: 18px;
-        &::first-letter{
-            padding-left: 10px;
-        }
     }
     @media (max-width: 550px) {
         margin-inline: 14px;
@@ -227,16 +225,16 @@ export const SearchDropdown = styled.div`
     border: 1px solid #ccc;
     margin-top: 10px;
     border-radius: 8px;
-
-    &button{
-        background-color: transparent;
-        border: none;
-        padding: 4px;
-        cursor: pointer;
-
-        &:first-child{
-            border-bottom: 1px solid #ccc;
-        }
+`
+export const SearchDropdownButton = styled.button`
+    background-color: transparent;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    text-align: start;
+    &:hover{
+        color: #2556b1;
+        transition: 0.1s;
     }
 `
 export const SearchInput = styled.input`
@@ -313,6 +311,7 @@ export const HeaderMenuButton = styled.button`
 export const HeaderMenuContent = styled.div`
     position: absolute;
     top: 70px;
+    right: 40px;
     width: 18rem;
     background-color: #f4f4f4;
     padding: 10px;
@@ -321,6 +320,12 @@ export const HeaderMenuContent = styled.div`
     flex-direction: column;
     gap: 10px;
     z-index: 999;
+
+    @media (max-width: 550px){
+        width: auto;
+        right: 10px;
+        left: 10px;
+    }
 `
 export const HeaderMenuLink = styled.a`
     color: #222;

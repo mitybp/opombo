@@ -27,6 +27,7 @@ const Home = () => {
     fetchData();
   });
 
+  console.error = console.warn = () => {};
   document.title = "Jornal O Pombo";
 
   return (

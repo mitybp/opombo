@@ -29,7 +29,6 @@ const Header = () => {
         </HeaderMenuButton>
         <HeaderMenuContent
           style={{
-            right: window.innerWidth <= 500 ? 10 : 40,
             display: ddState ? "flex" : "none",
           }}
         >

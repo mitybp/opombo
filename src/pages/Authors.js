@@ -26,7 +26,7 @@ const Authors = () => {
       </Container>
       <CardList>
         {authors.reverse().map((a) => (
-          <CardSimple href={`/${strFormat(a[0])}`}>
+          <CardSimple href={`/${strFormat(a[0])}`} key={a[0]}>
             {a[0]}
           </CardSimple>
         ))}

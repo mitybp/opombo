@@ -38,7 +38,7 @@ const Author = () => {
       </Container>
       <CardList>
         {author[1]
-          ? author[1].reverse().map((id) => <Card post={posts[id]} />)
+          ? author[1].reverse().map((id) => <Card post={posts[id]} key={id} />)
           : "Não foi possível encontrar o autor"}
       </CardList>
       <Loading visible={posts.length===0?true:false}/>

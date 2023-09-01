@@ -29,7 +29,7 @@ const Post = () => {
     fetchData();
 
     data.content
-      ? setMinuteRead(Math.ceil(data.content.trim().split(/\s+/).length / 200))
+      ? setMinuteRead(Math.ceil(data.content.toString().trim().split(/\s+/).length / 200))
       : setMinuteRead(0);
   });
 
@@ -80,19 +80,16 @@ const Post = () => {
             </PostInfo>
           </PostHeader>
           <Container>
-            {String(data.content)
-              .split("<br/>")
-              .map((p) => (
-                <p key={p}>
-                  {p}
-                </p>
-              ))}
+            {
+              data.content.map((p) => (
+                <p key={p} className="content-p">{p}</p>
+              ))
+            }
             <br />
             <h2>Creditos</h2>
             {data.creditos
               ? data.creditos.map((a) => (
-                  <PostCredit
-                  >
+                  <PostCredit key={a[0]}>
                     {a[0]}: {a[1]}
                   </PostCredit>
                 ))

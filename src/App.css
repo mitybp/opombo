@@ -12,6 +12,10 @@
   cursor: pointer;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -60,6 +64,9 @@ a:hover{
   gap: 14px;
 }
 
+.content-p::first-letter{
+  padding-left: 10px;
+}
 main{
   padding-top: 70px;
 }
