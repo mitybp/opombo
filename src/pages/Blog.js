@@ -27,7 +27,7 @@ const Blog = () => {
           <CardSimple>
             <h3>{p.title}</h3>
             <p>{p.content}</p>
-            <i style={{ marginTop: 10, fontSize: 15 }}>{p.date}</i>
+            <i style={{ marginTop: 10, fontSize: 15 }}>{p.author} ・ {p.date}</i>
           </CardSimple>
         ))}
       </CardList>
