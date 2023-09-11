@@ -24,7 +24,7 @@ const Blog = () => {
       </Container>
       <CardList>
         {posts.map((p) => (
-          <CardSimple>
+          <CardSimple id={`post-${p.id}`}>
             <h3>{p.title}</h3>
             <p>{p.content}</p>
             <i style={{ marginTop: 10, fontSize: 15 }}>{p.author} ・ {p.date}</i>
