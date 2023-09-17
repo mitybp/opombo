@@ -8,8 +8,6 @@ import { Container, SearchInputContainer, SearchButton, SearchInput, SearchDropd
 const Search = () => {
   const [posts, setPosts] = useState([]);
   const [inp, setInp] = useState("");
-  const [byTitle, setByTitle] = useState(true);
-  const [ddState, setDdState] = useState(false);
 
   document.title = "Pesquisar - O Pombo Jornal";
 
@@ -27,39 +25,23 @@ const Search = () => {
       <Container>
         <h1>Pesquisar</h1>
         <SearchInputContainer>
-          <SearchButton onClick={() => setDdState(!ddState)}>
-            {
-              ddState ? (
-                <X />
-              ):(
-                <FunnelSimple />
-              )
-            }
+          <SearchButton onClick={() => setInp("")}>
+            <X />
           </SearchButton>
           <SearchInput
             type="text"
-            placeholder={`Pesquisar por ${byTitle ? "título" : "conteúdo"}`}
+            placeholder={"Pesquisar por título"}
             onChange={(e) => setInp(e.target.value)}
             value={inp}
             name="input"
           />
         </SearchInputContainer>
-        <SearchDropdown
-          style={{ display: ddState ? "flex" : "none" }}
-        >
-          <SearchDropdownButton onClick={() => setInp("")}>Apagar</SearchDropdownButton>
-          <SearchDropdownButton onClick={() => setByTitle(!byTitle)}>Mudar filtro</SearchDropdownButton>
-        </SearchDropdown>
       </Container>
       <CardList>
-        {inp !== ""
+        {inp
           ? posts.map((p) => {
-              if (byTitle) {
-                if (p.title.toLowerCase().includes(inp.toLowerCase()))
-                  return <Card post={p} key={p.id} />;
-              } else {
-                if (p.content.toLowerCase().includes(inp.toLowerCase()))
-                  return <Card post={p} key={p.id} />;
+              if (p.title.toLowerCase().includes(inp.toLowerCase()))
+                return <Card post={p} key={p.id} />;
               }
             })
           : "Digite algo para pesquisar"}
