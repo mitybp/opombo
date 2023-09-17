@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Header from "../components/Header";
-import { FunnelSimple, X } from "@phosphor-icons/react";
+import { X } from "@phosphor-icons/react";
 import Card from "../components/Card";
 import Loading from "../components/Loading";
 import { Container, SearchInputContainer, SearchButton, SearchInput, SearchDropdown, CardList, SearchDropdownButton } from "../styled";
@@ -40,7 +40,7 @@ const Search = () => {
       <CardList>
         {inp
           ? posts.map((p) => {
-              if (p.title.toLowerCase().includes(inp.toLowerCase()))
+              if (p.title.toLowerCase().includes(inp.toLowerCase())){
                 return <Card post={p} key={p.id} />;
               }
             })
