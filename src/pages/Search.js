@@ -52,7 +52,7 @@ const Search = () => {
         </SearchDropdown>
       </Container>
       <CardList>
-        {inp === ""
+        {inp !== ""
           ? posts.map((p) => {
               if (byTitle) {
                 if (p.title.toLowerCase().includes(inp.toLowerCase()))
