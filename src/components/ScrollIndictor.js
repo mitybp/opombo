@@ -19,7 +19,7 @@ const ScrollIndictor = ({color}) => {
                 width: `${w}%`,
                 borderTopRightRadius: 4,
                 borderBottomRightRadius: 4,
-                transition: 0.2
+                transition: "0.2s"
             }}
         ></div>
     </ScrollIndictorContainer>
