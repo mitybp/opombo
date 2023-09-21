@@ -86,7 +86,7 @@ const Post = () => {
               ))
             }
             <br />
-            <h2>Creditos</h2>
+            <h2>Créditos</h2>
             {data.creditos
               ? data.creditos.map((a) => (
                   <PostCredit key={a[0]}>
