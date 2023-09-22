@@ -35,9 +35,7 @@ const Home = () => {
       <Header />
       <Tabs>
         <div>
-          <HomeDropdownButton
-            onClick={() => setDropdown(!dropdown)}
-          >
+          <HomeDropdownButton onClick={() => setDropdown(!dropdown)}>
             {dropdown ? <CaretUp /> : <CaretDown />} {actTag}
           </HomeDropdownButton>
         </div>
@@ -61,7 +59,7 @@ const Home = () => {
             );
           })}
         </TabList>
-        <HomeDivisor/>
+        <HomeDivisor />
 
         <TabPanel key={0} className="home-card-list">
           {posts.map((p) => (
@@ -71,17 +69,19 @@ const Home = () => {
         {tags.map((tt) => {
           return (
             <TabPanel key={tags.indexOf(tt) + 1} className="home-card-list">
-              {tt.ids.map((id) => (
-                <Card
-                  key={id}
-                  post={posts[0].id === 0 ? posts[id] : posts.reverse()[id]}
-                />
-              )).reverse()}
+              {tt.ids
+                .map((id) => (
+                  <Card
+                    key={id}
+                    post={posts[0].id === 0 ? posts[id] : posts.reverse()[id]}
+                  />
+                ))
+                .reverse()}
             </TabPanel>
           );
         })}
       </Tabs>
-      <Loading visible={posts.length===0?true:false}/>
+      <Loading visible={posts.length === 0 ? true : false} />
     </main>
   );
 };

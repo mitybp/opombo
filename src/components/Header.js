@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { List, X } from "@phosphor-icons/react";
+import { List, MagnifyingGlass, X } from "@phosphor-icons/react";
 import { HeaderContainer, HeaderLogo, HeaderMenuButton, HeaderMenuContent, HeaderMenuLink } from "../styled";
 
 const Header = () => {
   const [ddState, setDdState] = useState(false);
-
   return (
     <HeaderContainer>
       <HeaderLogo href="/">
@@ -18,6 +17,9 @@ const Header = () => {
         </span>
       </HeaderLogo>
       <div>
+        <HeaderMenuButton style={{marginRight: 4}} onClick={()=>document.location.pathname="/pesquisar"}>
+          <MagnifyingGlass style={{ transform: "translateY(2px)" }} />
+        </HeaderMenuButton>
         <HeaderMenuButton
           onClick={() => setDdState(!ddState)}
         >
@@ -41,8 +43,8 @@ const Header = () => {
           <HeaderMenuLink href="/salvos">
             Salvos
           </HeaderMenuLink>
-          <HeaderMenuLink href="/autores">
-            Autores
+          <HeaderMenuLink href="/cargos">
+            Cargos
           </HeaderMenuLink>
           <HeaderMenuLink href="/projeto-doce-solidario">
             Projeto Doce Solidário

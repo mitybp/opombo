@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import { X } from "@phosphor-icons/react";
 import Card from "../components/Card";
 import Loading from "../components/Loading";
-import { Container, SearchInputContainer, SearchButton, SearchInput, SearchDropdown, CardList, SearchDropdownButton } from "../styled";
+import { Container, SearchInputContainer, SearchButton, SearchInput, CardList } from "../styled";
 
 const Search = () => {
   const [posts, setPosts] = useState([]);

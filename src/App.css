@@ -21,13 +21,18 @@ html{
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', Arial;
+  /* border: 1px solid #ff000477; */
 }
 ::selection{
   background-color: #2758b34b;
 }
 
+button{
+  cursor: pointer;
+}
 a{
   color: #2758b3;
+  cursor: pointer;
 }
 a:hover{
   color: #2556b1;

@@ -16,7 +16,7 @@ const Card = ({ post }) => {
       <p>
         <a
           style={{color: '#222', textDecoration: 'none'}}
-          href={`/${strFormat(post.author)}`}
+          href={`/cargos/redacao/${strFormat(post.author)}`}
         >
           {post.author}
         </a>{" "}

@@ -1,10 +1,9 @@
 import "./App.css";
+import { useEffect } from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Post from "./pages/Post";
-import Author from "./pages/Author";
-import Authors from "./pages/Authors";
 import Saved from "./pages/Saved";
 import About from "./pages/About";
 import Bio from "./pages/Bio";
@@ -12,6 +11,9 @@ import Search from "./pages/Search";
 import Erro404 from "./pages/Erro404";
 import DoceSolidario from "./pages/DoceSolidario";
 import Blog from "./pages/Blog";
+import Cargos from "./pages/Cargos";
+import Cargo from "./pages/Cargo";
+import Pessoa from "./pages/Pessoa";
 
 function App() {
   if (localStorage.getItem("saved") == null)
@@ -27,17 +29,14 @@ function App() {
           element={<Post />}
           errorElement={<Erro404 />}
         />
-        <Route
-          path="/:author_name"
-          element={<Author />}
-          errorElement={<Erro404 />}
-        />
         {/* Páginas estáticas */}
         <Route
-          path="/autores/"
-          element={<Authors />}
+          path="/cargos/"
+          element={<Cargos />}
           errorElement={<Erro404 />}
         />
+        <Route path="/cargos/:cargo" element={<Cargo />} />
+        <Route path="/cargos/:cargo/:nome" element={<Pessoa />} />
         <Route path="/salvos/" element={<Saved />} errorElement={<Erro404 />} />
         <Route path="/sobre/" element={<About />} errorElement={<Erro404 />} />
         <Route path="/bio/" element={<Bio />} errorElement={<Erro404 />} />
@@ -53,11 +52,7 @@ function App() {
           errorElement={<Erro404 />}
         />
         {/* Blog */}
-        <Route
-          path="/blog"
-          element={<Blog/>}
-          errorElement={<Erro404/>}
-        />
+        <Route path="/blog" element={<Blog />} errorElement={<Erro404 />} />
         <Route path="*" element={<Erro404 />} />
         <Route path="/pagina-nao-encontrada" element={<Erro404 />} />
       </Routes>

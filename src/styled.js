@@ -164,7 +164,7 @@ export const PostTag = styled.p`
         margin-inline: 14px;
     }
 `
-export const PostSaveButton = styled.button`
+export const PostButton = styled.button`
     background-color: #f4f4f4;
     padding: 8px 16px;
     border: 1px solid #ccc;
@@ -172,6 +172,9 @@ export const PostSaveButton = styled.button`
     font-size: 14px;
     cursor: pointer;
     margin-top: 10px;
+    height: 40px;
+    width: auto;
+    color: #000;
 `
 export const PostTitle = styled.h1`
     margin-inline: 20%;
@@ -192,6 +195,31 @@ export const PostCredit = styled.p`
     border-bottom: 1px solid #ccc;
     &:last-child{
         border-bottom: none;
+    }
+`
+export const PostSpeechButton = styled.button`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 4px;
+    button{
+        border: none;
+        outline: none;
+        font-size: 18px;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px;
+        width: 40px;
+        height: 40px;
+        &:first-child{
+            border-right: 1px solid #ccc;
+        }
     }
 `
 
@@ -215,27 +243,6 @@ export const SearchButton = styled.button`
     cursor: pointer;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
-`
-export const SearchDropdown = styled.div`
-    display: flex;
-    flex-direction: column;
-    max-width: 8rem;
-    padding: 10px;
-    background-color: #f4f4f4;
-    border: 1px solid #ccc;
-    margin-top: 10px;
-    border-radius: 8px;
-`
-export const SearchDropdownButton = styled.button`
-    background-color: transparent;
-    border: none;
-    padding: 4px;
-    cursor: pointer;
-    text-align: start;
-    &:hover{
-        color: #2556b1;
-        transition: 0.1s;
-    }
 `
 export const SearchInput = styled.input`
     height: 40px;
@@ -336,12 +343,13 @@ export const HeaderMenuLink = styled.a`
 export const LoadingContainer = styled.div`
     position: fixed;
     inset: 0;
+    z-index: 999;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #ffffffaa;
 
-    &h1{
+    h1{
         background-color: #DBBAA9;
         padding: 8px 16px;
         border-radius: 8px;

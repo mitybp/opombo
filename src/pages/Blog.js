@@ -24,7 +24,7 @@ const Blog = () => {
       </Container>
       <CardList>
         {posts.map((p) => (
-          <CardSimple id={`post-${p.id}`}>
+          <CardSimple key={p.id} style={{cursor: 'auto'}}>
             <h3>{p.title}</h3>
             <p>{p.content}</p>
             <small style={{ marginTop: 10, fontSize: 15 }}>{p.author} ・ {p.date}</small>
