@@ -205,7 +205,6 @@ export const PostSpeechButton = styled.button`
     height: 40px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    margin-top: 4px;
     button{
         border: none;
         outline: none;
@@ -220,6 +219,34 @@ export const PostSpeechButton = styled.button`
         &:first-child{
             border-right: 1px solid #ccc;
         }
+    }
+`
+export const PostShareBar = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    font-size: 20px;
+    flex-direction: row;
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    a, button{
+        color: #000;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        text-decoration: none;
+        padding: 0;
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 `
 

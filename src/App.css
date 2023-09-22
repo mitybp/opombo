@@ -4,12 +4,14 @@
   width: 14px;
   background-color: transparent;
   border-left: 1px solid #ccc;
+  transition: 0.2s all ease-in-out;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: #ccc;
   border-radius: 4px;
   cursor: pointer;
+  transition: 0.2s all ease-in-out;
 }
 
 html{
@@ -24,7 +26,7 @@ html{
   /* border: 1px solid #ff000477; */
 }
 ::selection{
-  background-color: #2758b34b;
+  background-color: #2758b34b !important;
 }
 
 button{

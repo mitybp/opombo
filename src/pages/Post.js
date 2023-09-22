@@ -13,8 +13,14 @@ import {
   Container,
   PostCredit,
   Button,
+  PostShareBar,
 } from "../styled";
-import { WhatsappLogo } from "@phosphor-icons/react";
+import {
+  Copy,
+  FacebookLogo,
+  TwitterLogo,
+  WhatsappLogo,
+} from "@phosphor-icons/react";
 import Text2Speech from "../components/Text2Speech";
 
 const Post = () => {
@@ -90,9 +96,35 @@ const Post = () => {
                   ? "Remover dos salvos"
                   : "Salvar matéria"}
               </PostButton>
+              <div style={{display: "flex", gap: 4, marginTop: 4}}>
               <Text2Speech
                 text={data.title + ", por" + data.author + ". " + data.content}
               />
+              <PostShareBar>
+                <button
+                  onClick={() => {
+                    navigator.clipboard.writeText(
+                      `${data.title}, por ${data.author} - O Pombo Jornal. https://opombo.vercel.app${data.path}`
+                    );
+                    alert("Copiado para a área de transferência!");
+                  }}
+                >
+                  <Copy />
+                </button>
+                <a
+                  target="_blank"
+                  href={`http://twitter.com/intent/tweet?text=${data.title}, por ${data.author} - O Pombo Jornal. https://opombo.vercel.app${data.path}`}
+                >
+                  <TwitterLogo />
+                </a>
+                <a
+                  target="_blank"
+                  href={`http://api.whatsapp.com/send?text=${data.title}, por ${data.author} - O Pombo Jornal. https://opombo.vercel.app${data.path}`}
+                >
+                  <WhatsappLogo />
+                </a>
+              </PostShareBar>
+              </div>
             </PostInfo>
           </PostHeader>
           <Container>
