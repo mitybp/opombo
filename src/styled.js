@@ -197,7 +197,7 @@ export const PostCredit = styled.p`
         border-bottom: none;
     }
 `
-export const PostSpeechButton = styled.button`
+export const PostSpeechButton = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
