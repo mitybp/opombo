@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../components/Header";
-import { CardList, Container, CardSimple } from "../styled";
-import { strFormat } from "../api/strFormat";
+import Header from "../../components/Header";
+import { CardList, Container, CardSimple } from "../../styled";
+import { strFormat } from "../../api/strFormat";
 
 const Cargos = () => {
   document.title = "Cargos - O Pombo Jornal";
@@ -15,8 +15,8 @@ const Cargos = () => {
       url: "/cargos/edicao",
     },
     {
-      name: "Repórters",
-      url: "/cargos/reporters",
+      name: "Repórteres",
+      url: "/cargos/reporteres",
     },
   ];
   return (

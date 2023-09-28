@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import Header from "../components/Header";
-import { CardList, Container } from "../styled";
-import { strFormat } from "../api/strFormat";
+import Header from "../../../../components/Header";
+import { CardList, Container } from "../../../../styled";
+import { strFormat } from "../../../../api/strFormat";
 import { useParams } from "react-router-dom";
-import Card from "../components/Card";
+import Card from "../../../../components/Card";
+import Loading from "../../../../components/Loading";
 
 const Pessoa = () => {
   const { cargo, nome } = useParams();
@@ -35,8 +36,9 @@ const Pessoa = () => {
       <CardList>
         {pessoa[1]
           ? pessoa[1].reverse().map((id) => <Card post={posts[id]} key={id} />)
-          : ""}
+          : "Não foi possível encontrar no banco de dados."}
       </CardList>
+      <Loading visible={posts.length===0?true:false}/>
     </main>
   );
 };

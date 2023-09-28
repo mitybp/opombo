@@ -17,6 +17,7 @@ const ScrollIndictor = ({color}) => {
                 height: 8,
                 backgroundColor: color,
                 width: `${w}%`,
+                maxWidth: '100%',
                 borderTopRightRadius: 4,
                 borderBottomRightRadius: 4,
                 transition: "0.2s"

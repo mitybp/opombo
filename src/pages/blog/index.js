@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import Header from "../components/Header";
-import Loading from "../components/Loading";
-import { Container, CardList, CardSimple } from "../styled";
+import Header from "../../components/Header";
+import Loading from "../../components/Loading";
+import { Container, CardList, CardSimple } from "../../styled";
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);

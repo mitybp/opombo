@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import Header from "../components/Header";
+import Header from "../../../components/Header";
 import { useParams } from "react-router-dom";
-import { strFormat } from "../api/strFormat";
-import { CardList, CardSimple, Container } from "../styled";
+import { strFormat } from "../../../api/strFormat";
+import { CardList, CardSimple, Container } from "../../../styled";
+import Loading from '../../../components/Loading'
 
 const Cargo = () => {
   const [pessoas, setPessoas] = useState([]);
@@ -11,7 +12,7 @@ const Cargo = () => {
   let cargos = [
     "Redação",
     "Edição",
-    "Repórters",
+    "Repórteres",
     "Fotografia",
     "Entretenimento",
     "Divulgação",
@@ -35,12 +36,16 @@ const Cargo = () => {
         <h1>{cargos.map((c) => (strFormat(c) === cargo ? c : ""))}</h1>
       </Container>
       <CardList>
-        {pessoas.map((p, index) => (
+        {
+          pessoas?(pessoas.map((p, index) => (
           <CardSimple key={index} href={`/cargos/${cargo}/${strFormat(p[0])}`}>
             {p[0]}
           </CardSimple>
-        ))}
+        ))):(
+          "Não foi possível encontrar no banco de dados."
+        )}
       </CardList>
+      <Loading visible={pessoas.length===0?true:false}/>
     </main>
   );
 };

@@ -14,7 +14,7 @@ export const Container = styled.div`
         margin-inline: 14px;
     }
 `
-export const Button = styled.button`
+export const Button = styled.button && styled.a`
     background-color: #f4f4f4;
     padding: 8px 16px;
     border: 1px solid #ccc;
@@ -23,8 +23,19 @@ export const Button = styled.button`
     cursor: pointer;
     color: #000;
     text-decoration: none;
+    outline: none;
 `
 
+export const Input = styled.input`
+    background-color: #f4f4f4;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #000;
+    outline: none;
+    width: 100%;
+`
 //* Card
 export const CardList = styled.div`
     padding: 14px 20%;
@@ -224,8 +235,7 @@ export const PostSpeechButton = styled.div`
 export const PostShareBar = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 10px;
+    justify-content: center;
     font-size: 20px;
     flex-direction: row;
     width: 120px;
@@ -237,17 +247,36 @@ export const PostShareBar = styled.div`
     a, button{
         color: #000;
         background-color: transparent;
-        border: none;
+        padding: 10px;
         outline: none;
         text-decoration: none;
-        padding: 0;
         width: 40px;
         height: 40px;
         font-size: 20px;
         display: flex;
         align-items: center;
         justify-content: center;
+        border: none;
+        border-right: 1px solid #ccc;
+        &:last-child{
+            border: none;
+        }
     }
+`
+export const PostGoTopButton = styled.a`
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ccc;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    border-radius: 8px;
+    color: #000;
 `
 
 //* Search

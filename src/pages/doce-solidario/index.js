@@ -1,5 +1,5 @@
-import Header from "../components/Header";
-import { Button, Container } from "../styled";
+import Header from "../../components/Header";
+import { Button, Container } from "../../styled";
 
 const DoceSolidario = () => {
   document.title = "Projeto Doce Solidário - O Pombo";

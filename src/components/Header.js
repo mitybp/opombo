@@ -35,10 +35,7 @@ const Header = () => {
           }}
         >
           <HeaderMenuLink href="/sobre">
-            Sobre
-          </HeaderMenuLink>
-          <HeaderMenuLink href="/pesquisar">
-            Pesquisar
+            Sobre nós
           </HeaderMenuLink>
           <HeaderMenuLink href="/salvos">
             Salvos
@@ -46,17 +43,30 @@ const Header = () => {
           <HeaderMenuLink href="/cargos">
             Cargos
           </HeaderMenuLink>
-          <HeaderMenuLink href="/projeto-doce-solidario">
-            Projeto Doce Solidário
+          <HeaderMenuLink href="/equipe">
+            Equipe
           </HeaderMenuLink>
           <HeaderMenuLink href="/blog">
             Blog
           </HeaderMenuLink>
+          <HeaderMenuLink href="/galeria">
+            Galeria de fotos
+          </HeaderMenuLink>
+          <HeaderMenuLink href="/interclasse">
+            Interclasse
+          </HeaderMenuLink>
+          <hr/>
           <HeaderMenuLink
             target="_blank"
             href="https://instagram.com/opombo.jornal"
           >
             Instagram
+          </HeaderMenuLink>
+          <HeaderMenuLink
+            target="_blank"
+            href="https://colegiointegral.com.br"
+          >
+            Colégio Integral
           </HeaderMenuLink>
         </HeaderMenuContent>
       </div>

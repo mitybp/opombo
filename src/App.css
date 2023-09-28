@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 ::-webkit-scrollbar {
-  width: 14px;
+  width: 10px;
   background-color: transparent;
   border-left: 1px solid #ccc;
   transition: 0.2s all ease-in-out;
@@ -9,14 +9,19 @@
 
 ::-webkit-scrollbar-thumb {
   background-color: #ccc;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
   transition: 0.2s all ease-in-out;
 }
 
 html{
-  scroll-behavior: smooth;
+  scroll-behavior: smooth !important;
 }
+hr{
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
 
 * {
   margin: 0;
@@ -29,6 +34,34 @@ html{
   background-color: #2758b34b !important;
 }
 
+thead {
+  background-color: #ccc;
+  text-align: center;
+}
+tbody tr:nth-child(even){
+  background-color: #f4f4f4;
+}
+
+th, td {
+  padding: 10px;
+  border-radius: 4px;
+}
+table{
+  width: 60%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  @media (max-width: 650px) {
+    width: 100%;
+  }
+}
+
+img{
+  width: 100%;
+  border-radius: 8px;
+}
+h3{
+  margin-top: 10px;
+}
 button{
   cursor: pointer;
 }
@@ -40,6 +73,32 @@ a:hover{
   color: #2556b1;
   transition: 0.1s;
 }
+img.gallery{
+  border-radius: 8px;
+  width: 100%;
+  object-fit:cover;
+}
+ul{
+  padding-left: 40px;
+}
+details summary{
+  font-size: 26px;
+  cursor: pointer;
+}
+details{
+  margin-block: 10px;
+  :not(ul li)::marker{
+    content: "▶️";
+  }
+  &[open] :not(ul li)::marker{
+    content: "🔼";
+  }
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
 
 .home-tab-tags-list{
   padding: 14px;
