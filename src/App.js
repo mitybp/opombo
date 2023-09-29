@@ -27,6 +27,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} errorElement={<Erro404 />} />
         {/* Páginas não estáticas */}
+        <Route path="/p/:id" element={<P />} errorElement={<Erro404 />} />
         <Route
           path="/:post_author/:post_title"
           element={<Post />}
@@ -61,7 +62,6 @@ function App() {
         />
         <Route path="/sobre/" element={<About />} errorElement={<Erro404 />} />
         <Route path="/bio/" element={<Bio />} errorElement={<Erro404 />} />
-        <Route path="/p/:id" element={<P />} errorElement={<Erro404 />} />
         <Route
           path="/pesquisar/"
           element={<Search />}
