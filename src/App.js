@@ -16,7 +16,7 @@ import Cargo from "./pages/cargos/cargo/index.js";
 import Pessoa from "./pages/cargos/cargo/pessoa/index.js";
 import Galeria from "./pages/galeria";
 import Interclasse from "./pages/interclasse";
-import Equipe from "./pages/equipe";
+import P from './pages/p';
 
 function App() {
   if (localStorage.getItem("saved") == null)
@@ -59,9 +59,9 @@ function App() {
           element={<Galeria />}
           errorElement={<Erro404 />}
         />
-        <Route path="/equipe" element={<Equipe/>} errorElement={<Erro404/>} />
         <Route path="/sobre/" element={<About />} errorElement={<Erro404 />} />
         <Route path="/bio/" element={<Bio />} errorElement={<Erro404 />} />
+        <Route path="/p/:id" element={<P />} errorElement={<Erro404 />} />
         <Route
           path="/pesquisar/"
           element={<Search />}

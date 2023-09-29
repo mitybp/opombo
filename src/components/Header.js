@@ -43,9 +43,6 @@ const Header = () => {
           <HeaderMenuLink href="/cargos">
             Cargos
           </HeaderMenuLink>
-          <HeaderMenuLink href="/equipe">
-            Equipe
-          </HeaderMenuLink>
           <HeaderMenuLink href="/blog">
             Blog
           </HeaderMenuLink>
