@@ -105,7 +105,7 @@ const Post = () => {
                 <PostShareBar>
                   <button
                     onClick={() => {
-                      navigator.clipboard.writeText(`https://opombo.page.link/${data.id}`);
+                      navigator.clipboard.writeText(`${data.title}, por ${data.author} - O Pombo Jornal. https://opombo.page.link/${data.id}`);
                       alert("Copiado para a área de transferência!");
                     }}
                   >
