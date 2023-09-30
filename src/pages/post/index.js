@@ -49,8 +49,8 @@ const Post = () => {
 
     data.content
       ? setMinuteRead(
-          Math.ceil(data.content.toString().trim().split(/\s+/).length / 200)
-        )
+        Math.ceil(data.content.toString().trim().split(/\s+/).length / 200)
+      )
       : setMinuteRead(0);
   });
 
@@ -98,32 +98,32 @@ const Post = () => {
                   ? "Remover dos salvos"
                   : "Salvar matéria"}
               </PostButton>
-              <div style={{display: "flex", gap: 4, marginTop: 4}}>
-              <Text2Speech
-                text={data.title + ", por" + data.author + ". " + data.content}
-              />
-              <PostShareBar>
-                <button
-                  onClick={() => {
-                    navigator.clipboard.writeText(`https://opombo.page.link/${data.id}`);
-                    alert("Copiado para a área de transferência!");
-                  }}
-                >
-                  <Copy />
-                </button>
-                <a
-                  target="_blank"
-                  href={`http://twitter.com/intent/tweet?text=${data.title}, por ${data.author} - O Pombo Jornal. https://opombo.page.link/${data.id}`}
-                >
-                  <TwitterLogo />
-                </a>
-                <a
-                  target="_blank"
-                  href={`http://api.whatsapp.com/send?text=${data.title}, por ${data.author} - O Pombo Jornal. https://opombo.page.link/${data.id}`}
-                >
-                  <WhatsappLogo />
-                </a>
-              </PostShareBar>
+              <div style={{ display: "flex", gap: 4, marginTop: 4 }}>
+                <Text2Speech
+                  text={data.title + ", por" + data.author + ". " + data.content}
+                />
+                <PostShareBar>
+                  <button
+                    onClick={() => {
+                      navigator.clipboard.writeText(`https://opombo.page.link/${data.id}`);
+                      alert("Copiado para a área de transferência!");
+                    }}
+                  >
+                    <Copy />
+                  </button>
+                  <a
+                    target="_blank"
+                    href={`http://twitter.com/intent/tweet?text=${data.title}, por ${data.author} - O Pombo Jornal. https://opombo.page.link/${data.id}`}
+                  >
+                    <TwitterLogo />
+                  </a>
+                  <a
+                    target="_blank"
+                    href={`http://api.whatsapp.com/send?text=${data.title}, por ${data.author} - O Pombo Jornal. https://opombo.page.link/${data.id}`}
+                  >
+                    <WhatsappLogo />
+                  </a>
+                </PostShareBar>
               </div>
             </PostInfo>
           </PostHeader>
@@ -137,13 +137,13 @@ const Post = () => {
             <h2>Créditos</h2>
             {data.creditos
               ? data.creditos.map((a) => (
-                  <PostCredit key={a[0]}>
-                    {a[0]}: {a[1]}
-                  </PostCredit>
-                ))
+                <PostCredit key={a[0]}>
+                  {a[0]}: {a[1]}
+                </PostCredit>
+              ))
               : ""}
-            <PostGoTopButton href="#" style={{display: window.scrollY>=80?"flex":"none"}}>
-              <CaretUp/>
+            <PostGoTopButton href="#" style={{ display: window.scrollY >= 80 ? "flex" : "none" }}>
+              <CaretUp />
             </PostGoTopButton>
           </Container>
         </div>
