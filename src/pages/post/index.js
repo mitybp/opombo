@@ -105,9 +105,7 @@ const Post = () => {
               <PostShareBar>
                 <button
                   onClick={() => {
-                    navigator.clipboard.writeText(
-                      `${data.title}, por ${data.author} - O Pombo Jornal. https://opombo.vercel.app${data.path}`
-                    );
+                    navigator.clipboard.writeText(`https://opombo.page.link/${data.id}`);
                     alert("Copiado para a área de transferência!");
                   }}
                 >
@@ -115,13 +113,13 @@ const Post = () => {
                 </button>
                 <a
                   target="_blank"
-                  href={`http://twitter.com/intent/tweet?text=${data.title}, por ${data.author} - O Pombo Jornal. https://opombo.vercel.app${data.path}`}
+                  href={`http://twitter.com/intent/tweet?text=${data.title}, por ${data.author} - O Pombo Jornal. https://opombo.page.link/${data.id}`}
                 >
                   <TwitterLogo />
                 </a>
                 <a
                   target="_blank"
-                  href={`http://api.whatsapp.com/send?text=${data.title}, por ${data.author} - O Pombo Jornal. https://opombo.vercel.app${data.path}`}
+                  href={`http://api.whatsapp.com/send?text=${data.title}, por ${data.author} - O Pombo Jornal. https://opombo.page.link/${data.id}`}
                 >
                   <WhatsappLogo />
                 </a>
