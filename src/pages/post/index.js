@@ -22,6 +22,7 @@ import {
   FacebookLogo,
   TwitterLogo,
   WhatsappLogo,
+  Check
 } from "@phosphor-icons/react";
 import Text2Speech from "../../components/Text2Speech";
 
@@ -30,6 +31,7 @@ const Post = () => {
   const [tagUpper, setTagUpper] = useState({});
   const [data, setData] = useState({});
   const [minuteRead, setMinuteRead] = useState(0);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     function fetchData() {
@@ -106,10 +108,11 @@ const Post = () => {
                   <button
                     onClick={() => {
                       navigator.clipboard.writeText(`${data.title}, por ${data.author} - O Pombo Jornal. https://opombo.page.link/${data.id}`);
-                      alert("Copiado para a área de transferência!");
+                      setCopied(true);
+                      setTimeout(()=>setCopied(false), 5000)
                     }}
                   >
-                    <Copy />
+                    {copied?<Check/>:<Copy />}
                   </button>
                   <a
                     target="_blank"
