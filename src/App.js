@@ -16,7 +16,6 @@ import Cargo from "./pages/cargos/cargo/index.js";
 import Pessoa from "./pages/cargos/cargo/pessoa/index.js";
 import Galeria from "./pages/galeria";
 import Interclasse from "./pages/interclasse";
-import P from './pages/p';
 
 function App() {
   if (localStorage.getItem("saved") == null)
@@ -27,7 +26,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} errorElement={<Erro404 />} />
         {/* Páginas não estáticas */}
-        <Route path="/p/:id" element={<P />} errorElement={<Erro404 />} />
         <Route
           path="/:post_author/:post_title"
           element={<Post />}
