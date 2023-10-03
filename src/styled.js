@@ -275,7 +275,7 @@ export const PostGoTopButton = styled.a`
     align-items: center;
     justify-content: center;
     font-size: 20px;
-    border-radius: 8px;
+    border-radius: 4px;
     color: #000;
 `
 
