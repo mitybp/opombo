@@ -25,6 +25,7 @@ import {
   Check
 } from "@phosphor-icons/react";
 import Text2Speech from "../../components/Text2Speech";
+import {strFormat} from "../../api/strFormat"
 
 const Post = () => {
   const { post_author, post_title } = useParams();
@@ -35,12 +36,12 @@ const Post = () => {
 
   useEffect(() => {
     function fetchData() {
-      fetch("https://opomboapi.vercel.app/app/index.json")
+      fetch("https://opomboapi.vercel.app/db/posts.json")
         .then((res) => res.json())
         .then((dt) => {
-          setTagUpper(dt["tags-upper"]);
-          dt["db"].map((p) => {
-            if (p.path === `/${post_author}/${post_title}`) {
+          setTagUpper(dt["tagsUpper"]);
+          dt["posts"].map((p) => {
+            if (strFormat(p.title) === post_title) {
               setData(p);
             }
           });

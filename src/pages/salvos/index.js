@@ -10,10 +10,10 @@ const Saved = () => {
 
   useEffect(() => {
     function fetchData() {
-      fetch("https://opomboapi.vercel.app/app/index.json")
+      fetch("https://opomboapi.vercel.app/db/posts.json")
         .then((res) => res.json())
         .then((dt) => {
-          setPosts(dt["db"]);
+          setPosts(dt["posts"]);
           setSaved(
             localStorage.getItem("saved") == null
               ? []

@@ -12,15 +12,11 @@ const Cargo = () => {
   let cargos = [
     "Redação",
     "Edição",
-    "Repórteres",
-    "Fotografia",
-    "Entretenimento",
-    "Divulgação",
-    "T.I",
+    "Repórteres"
   ];
   useEffect(() => {
     function fetchData() {
-      fetch("https://opomboapi.vercel.app/app/index.json")
+      fetch("https://opomboapi.vercel.app/db/cargos.json")
         .then((res) => res.json())
         .then((dt) => {
           setPessoas(dt.cargos[cargo]);

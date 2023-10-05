@@ -6,12 +6,12 @@ import { Container, CardList, CardSimple } from "../../styled";
 const Blog = () => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    fetch("https://opomboapi.vercel.app/app/index.json")
+    fetch("https://opomboapi.vercel.app/db/blog.json")
       .then((res) => res.json())
       .then((dt) => {
-        dt["blog"][0]["id"] === 0
-          ? setPosts(dt["blog"].reverse())
-          : setPosts(dt["blog"]);
+        dt[0]["id"] === 0
+          ? setPosts(dt.reverse())
+          : setPosts(dt);
       });
   });
 
