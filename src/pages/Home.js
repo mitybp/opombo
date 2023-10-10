@@ -11,16 +11,16 @@ const Home = () => {
   const [tags, setTags] = useState([]);
   const [actTag, setActTag] = useState("Todas");
   const [dropdown, setDropdown] = useState(true);
-  const [link_tags, setLinkTags] = useState([]);
+  const [colorTags, setLinkTags] = useState([]);
 
   useEffect(() => {
     function fetchData() {
-      fetch("https://opomboapi.vercel.app/app/index.json")
+      fetch("https://opomboapi.vercel.app/db/posts.json")
         .then((res) => res.json())
-        .then((dt) => {
-          setPosts(dt["db"][0].id === 0 ? dt["db"].reverse() : dt["db"]);
-          setTags(dt["tags"]);
-          setLinkTags(dt["link_tags"]);
+        .then((data) => {
+          setPosts(data["posts"][0].id === 0 ? data["posts"].reverse() : data["posts"]);
+          setTags(data["tags"]);
+          setLinkTags(data["colorTags"]);
         });
     }
 
@@ -43,7 +43,7 @@ const Home = () => {
           style={{ display: dropdown ? "flex" : "none" }}
           className="home-tab-tags-list"
         >
-          {link_tags.map((tt) => {
+          {colorTags.map((tt) => {
             return (
               <Tab
                 key={tt[0]}

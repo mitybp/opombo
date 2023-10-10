@@ -34,11 +34,11 @@ const Post = () => {
 
   useEffect(() => {
     function fetchData() {
-      fetch("https://opomboapi.vercel.app/app/index.json")
+      fetch("https://opomboapi.vercel.app/db/posts.json")
         .then((res) => res.json())
         .then((dt) => {
-          setTagUpper(dt["tags-upper"]);
-          dt["db"].map((p) => {
+          setTagUpper(dt["tagsUpper"]);
+          dt["posts"].map((p) => {
             if (strFormat(p.title) === post_title) {
               setData(p);
             }

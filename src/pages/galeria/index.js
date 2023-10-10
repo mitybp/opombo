@@ -6,12 +6,12 @@ import { Container, CardList, CardSimple } from "../../styled";
 const Galeria = () => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    fetch("https://opomboapi.vercel.app/app/index.json")
+    fetch("https://opomboapi.vercel.app/db/galeria.json")
       .then((res) => res.json())
-      .then((dt) => {
-        dt.galeria[0].id === 0
-          ? setPosts(dt.galeria.reverse())
-          : setPosts(dt.galeria);
+      .then((data) => {
+        data[0].id === 0
+          ? setPosts(data.reverse())
+          : setPosts(data);
       });
   });
 
@@ -27,7 +27,7 @@ const Galeria = () => {
           ? posts.map((p) => (
               <CardSimple key={p.id} href={p.link?p.link:""} target={p.target}>
                 <img
-                  src={`https://opomboapi.vercel.app/app/galeria/${p.id}.${p.type}`}
+                  src={`https://opomboapi.vercel.app/db/galeria/${p.id}.${p.type}`}
                 />
                 <small>
                   {p.caption} ・ {p.author} ・ {p.date}

@@ -3,7 +3,7 @@ import { LoadingContainer } from "../styled";
 const Loading = ({visible}) => {
   return (
     <LoadingContainer style={{display: visible?'flex':'none'}}>
-        <h1>Carregando banco de dados...</h1>
+        <h1>Carregando...</h1>
     </LoadingContainer>
   );
 };
