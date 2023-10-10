@@ -9,14 +9,14 @@ const Card = ({ post }) => {
         {card_tagsUpper[post.tag]}
       </CardTag>
       <CardTitle
-        href={`/${strFormat(post.author)}/${strFormat(post.title)}`}
+        href={`/materia/${strFormat(post.title)}`}
       >
         {post.title}
       </CardTitle>
       <p>
         <a
           style={{color: '#222', textDecoration: 'none'}}
-          href={`/cargos/redacao/${strFormat(post.author)}`}
+          href={`/redacao/${strFormat(post.author)}`}
         >
           {post.author}
         </a>{" "}

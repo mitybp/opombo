@@ -12,22 +12,21 @@ import {
   PostInfo,
   Container,
   PostCredit,
-  Button,
   PostShareBar,
   PostGoTopButton,
 } from "../../styled";
 import {
   CaretUp,
   Copy,
-  FacebookLogo,
   TwitterLogo,
   WhatsappLogo,
   Check
 } from "@phosphor-icons/react";
 import Text2Speech from "../../components/Text2Speech";
+import { strFormat } from "../../api/strFormat";
 
 const Post = () => {
-  const { post_author, post_title } = useParams();
+  const {post_title } = useParams();
   const [tagUpper, setTagUpper] = useState({});
   const [data, setData] = useState({});
   const [minuteRead, setMinuteRead] = useState(0);
@@ -40,7 +39,7 @@ const Post = () => {
         .then((dt) => {
           setTagUpper(dt["tags-upper"]);
           dt["db"].map((p) => {
-            if (p.path === `/${post_author}/${post_title}`) {
+            if (strFormat(p.title) === post_title) {
               setData(p);
             }
           });
@@ -74,7 +73,7 @@ const Post = () => {
             <PostInfo>
               <a
                 style={{ color: "#444", textDecoration: "none" }}
-                href={`/cargos/redacao/${post_author}`}
+                href={`/redacao/${strFormat(data.author)}`}
               >
                 {data.author}
               </a>{" "}
@@ -131,11 +130,7 @@ const Post = () => {
             </PostInfo>
           </PostHeader>
           <Container>
-            {data.content.map((p) => (
-              <p key={p} className="content-p">
-                {p}
-              </p>
-            ))}
+            {data.content.map((p, i)=><p key={i} className="content-p" >{p}</p>)}
             <br />
             <h2>Créditos</h2>
             {data.creditos

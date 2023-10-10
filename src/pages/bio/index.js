@@ -18,7 +18,7 @@ const Bio = () => {
       <BioButton href="https://instagram.com/opombo.jornal" target="_blank">
         Instagram
       </BioButton>
-      <p className='copyright'>O Pombo Jornal © {new Date().getFullYear()} - Todos os direitos reservados.</p>
+      <br/><p className='copyright'>O Pombo Jornal © {new Date().getFullYear()===2024?"2023-2024":"2023"} - Todos os direitos reservados.</p>
     </BioContainer>
   );
 };
