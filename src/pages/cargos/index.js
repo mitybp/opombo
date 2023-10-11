@@ -8,15 +8,15 @@ const Cargos = () => {
   let cargos = [
     {
       name: "Redação",
-      url: "/cargos/redacao",
+      url: "/redacao",
     },
     {
       name: "Edição",
-      url: "/cargos/edicao",
+      url: "/edicao",
     },
     {
       name: "Repórteres",
-      url: "/cargos/reporteres",
+      url: "/reporteres",
     },
   ];
   return (
