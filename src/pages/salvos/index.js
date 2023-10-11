@@ -9,7 +9,6 @@ const Saved = () => {
   const [saved, setSaved] = useState([]);
 
   useEffect(() => {
-    function fetchData() {
       fetch("https://opomboapi.vercel.app/db/posts.json")
         .then((res) => res.json())
         .then((dt) => {
@@ -19,9 +18,11 @@ const Saved = () => {
               ? []
               : JSON.parse(localStorage.getItem("saved"))
           );
+        })
+        .catch(err=>{
+          setPosts([]);
+          document.location.reload();
         });
-    }
-    fetchData();
   });
 
   document.title = "Salvos - O Pombo Jornal";

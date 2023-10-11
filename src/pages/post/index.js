@@ -20,38 +20,38 @@ import {
   Copy,
   TwitterLogo,
   WhatsappLogo,
-  Check
+  Check,
 } from "@phosphor-icons/react";
 import Text2Speech from "../../components/Text2Speech";
 import { strFormat } from "../../api/strFormat";
 
 const Post = () => {
-  const {post_title } = useParams();
+  const { post_title } = useParams();
   const [tagUpper, setTagUpper] = useState({});
   const [data, setData] = useState({});
   const [minuteRead, setMinuteRead] = useState(0);
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
-    function fetchData() {
-      fetch("https://opomboapi.vercel.app/db/posts.json")
-        .then((res) => res.json())
-        .then((dt) => {
-          setTagUpper(dt["tagsUpper"]);
-          dt["posts"].map((p) => {
-            if (strFormat(p.title) === post_title) {
-              setData(p);
-            }
-          });
+    fetch("https://opomboapi.vercel.app/db/posts.json")
+      .then((res) => res.json())
+      .then((dt) => {
+        setTagUpper(dt["tagsUpper"]);
+        dt["posts"].map((p) => {
+          if (strFormat(p.title) === post_title) {
+            setData(p);
+          }
         });
-    }
-
-    fetchData();
+      })
+      .catch((err) => {
+        setData({});
+        document.location.reload();
+      });
 
     data.content
       ? setMinuteRead(
-        Math.ceil(data.content.toString().trim().split(/\s+/).length / 200)
-      )
+          Math.ceil(data.content.toString().trim().split(/\s+/).length / 200)
+        )
       : setMinuteRead(0);
   });
 
@@ -101,18 +101,22 @@ const Post = () => {
               </PostButton>
               <div style={{ display: "flex", gap: 4, marginTop: 4 }}>
                 <Text2Speech
-                  text={data.title + ", por" + data.author + ". " + data.content}
+                  text={
+                    data.title + ", por" + data.author + ". " + data.content
+                  }
                 />
                 <PostShareBar>
                   <button
                     title="Copiar link"
                     onClick={() => {
-                      navigator.clipboard.writeText(`${data.title}, por ${data.author} - O Pombo Jornal. https://opombo.page.link/${data.id}`);
+                      navigator.clipboard.writeText(
+                        `${data.title}, por ${data.author} - O Pombo Jornal. https://opombo.page.link/${data.id}`
+                      );
                       setCopied(true);
-                      setTimeout(()=>setCopied(false), 5000)
+                      setTimeout(() => setCopied(false), 5000);
                     }}
                   >
-                    {copied?<Check/>:<Copy />}
+                    {copied ? <Check /> : <Copy />}
                   </button>
                   <a
                     title="Compartilhar no Twitter"
@@ -133,17 +137,24 @@ const Post = () => {
             </PostInfo>
           </PostHeader>
           <Container>
-            {data.content.map((p, i)=><p key={i} className="content-p" >{p}</p>)}
+            {data.content.map((p, i) => (
+              <p key={i} className="content-p">
+                {p}
+              </p>
+            ))}
             <br />
             <h2>Créditos</h2>
             {data.creditos
               ? data.creditos.map((a) => (
-                <PostCredit key={a[0]}>
-                  {a[0]}: {a[1]}
-                </PostCredit>
-              ))
+                  <PostCredit key={a[0]}>
+                    {a[0]}: {a[1]}
+                  </PostCredit>
+                ))
               : ""}
-            <PostGoTopButton href="#" style={{ display: window.scrollY >= 80 ? "flex" : "none" }}>
+            <PostGoTopButton
+              href="#"
+              style={{ display: window.scrollY >= 80 ? "flex" : "none" }}
+            >
               <CaretUp />
             </PostGoTopButton>
           </Container>

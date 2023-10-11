@@ -9,9 +9,11 @@ const Blog = () => {
     fetch("https://opomboapi.vercel.app/db/blog.json")
       .then((res) => res.json())
       .then((data) => {
-        data[0]["id"] === 0
-          ? setPosts(data.reverse())
-          : setPosts(data);
+        data[0]["id"] === 0 ? setPosts(data.reverse()) : setPosts(data);
+      })
+      .catch((err) => {
+        setPosts([]);
+        document.location.reload();
       });
   });
 
@@ -24,14 +26,16 @@ const Blog = () => {
       </Container>
       <CardList>
         {posts.map((p) => (
-          <CardSimple key={p.id} style={{cursor: 'auto'}}>
+          <CardSimple key={p.id} style={{ cursor: "auto" }}>
             <h3>{p.title}</h3>
             <p>{p.content}</p>
-            <small style={{ marginTop: 10, fontSize: 15 }}>{p.author} ・ {p.date}</small>
+            <small style={{ marginTop: 10, fontSize: 15 }}>
+              {p.author} ・ {p.date}
+            </small>
           </CardSimple>
         ))}
       </CardList>
-      <Loading visible={posts.length===0?true:false}/>
+      <Loading visible={posts.length === 0 ? true : false} />
     </main>
   );
 };

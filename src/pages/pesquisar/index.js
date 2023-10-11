@@ -3,7 +3,13 @@ import Header from "../../components/Header";
 import { X } from "@phosphor-icons/react";
 import Card from "../../components/Card";
 import Loading from "../../components/Loading";
-import { Container, SearchInputContainer, SearchButton, SearchInput, CardList } from "../../styled";
+import {
+  Container,
+  SearchInputContainer,
+  SearchButton,
+  SearchInput,
+  CardList,
+} from "../../styled";
 
 const Search = () => {
   const [posts, setPosts] = useState([]);
@@ -12,12 +18,13 @@ const Search = () => {
   document.title = "Pesquisar - O Pombo Jornal";
 
   useEffect(() => {
-    function fetchData() {
-      fetch("https://opomboapi.vercel.app/db/posts.json")
-        .then((res) => res.json())
-        .then((dt) => setPosts(dt["posts"]));
-    }
-    fetchData();
+    fetch("https://opomboapi.vercel.app/db/posts.json")
+      .then((res) => res.json())
+      .then((dt) => setPosts(dt["posts"]))
+      .catch((err) => {
+        setPosts([]);
+        document.location.reload();
+      });
   });
   return (
     <main>
@@ -40,13 +47,13 @@ const Search = () => {
       <CardList>
         {inp
           ? posts.map((p) => {
-              if (p.title.toLowerCase().includes(inp.toLowerCase())){
+              if (p.title.toLowerCase().includes(inp.toLowerCase())) {
                 return <Card post={p} key={p.id} />;
               }
             })
           : "Digite algo para pesquisar"}
       </CardList>
-      <Loading visible={posts.length===0?true:false}/>
+      <Loading visible={posts.length === 0 ? true : false} />
     </main>
   );
 };

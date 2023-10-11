@@ -21,10 +21,18 @@ const Pessoa = () => {
               setPessoa(p);
             }
           });
+        })
+        .catch((err) => {
+          setPessoa([]);
+          document.location.reload();
         });
       fetch("https://opomboapi.vercel.app/db/posts.json")
-        .then(res=>res.json())
-        .then(dt=>setPosts(dt["posts"]))
+        .then((res) => res.json())
+        .then((dt) => setPosts(dt["posts"]))
+        .catch((err) => {
+          setPosts([]);
+          document.location.reload();
+        });
     }
 
     fetchData();
@@ -40,7 +48,7 @@ const Pessoa = () => {
           ? pessoa[1].reverse().map((id) => <Card post={posts[id]} key={id} />)
           : "Não foi possível encontrar no banco de dados."}
       </CardList>
-      <Loading visible={posts.length===0?true:false}/>
+      <Loading visible={posts.length === 0 ? true : false} />
     </main>
   );
 };

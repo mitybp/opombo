@@ -14,17 +14,19 @@ const Home = () => {
   const [colorTags, setLinkTags] = useState([]);
 
   useEffect(() => {
-    function fetchData() {
-      fetch("https://opomboapi.vercel.app/db/posts.json")
-        .then((res) => res.json())
-        .then((data) => {
-          setPosts(data["posts"][0].id === 0 ? data["posts"].reverse() : data["posts"]);
-          setTags(data["tags"]);
-          setLinkTags(data["colorTags"]);
-        });
-    }
-
-    fetchData();
+    fetch("https://opomboapi.vercel.app/db/posts.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setPosts(
+          data["posts"][0].id === 0 ? data["posts"].reverse() : data["posts"]
+        );
+        setTags(data["tags"]);
+        setLinkTags(data["colorTags"]);
+      })
+      .catch((err) => {
+        setPosts([]);
+        document.location.reload();
+      });
   });
 
   console.error = console.warn = () => {};

@@ -9,9 +9,11 @@ const Galeria = () => {
     fetch("https://opomboapi.vercel.app/db/galeria.json")
       .then((res) => res.json())
       .then((data) => {
-        data[0].id === 0
-          ? setPosts(data.reverse())
-          : setPosts(data);
+        data[0].id === 0 ? setPosts(data.reverse()) : setPosts(data);
+      })
+      .catch((err) => {
+        setPosts([]);
+        document.location.reload();
       });
   });
 
@@ -25,7 +27,11 @@ const Galeria = () => {
       <CardList>
         {posts
           ? posts.map((p) => (
-              <CardSimple key={p.id} href={p.link?p.link:""} target={p.target}>
+              <CardSimple
+                key={p.id}
+                href={p.link ? p.link : ""}
+                target={p.target}
+              >
                 <img
                   src={`https://opomboapi.vercel.app/db/galeria/${p.id}.${p.type}`}
                 />
