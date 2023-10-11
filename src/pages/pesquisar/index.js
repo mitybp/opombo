@@ -21,10 +21,6 @@ const Search = () => {
     fetch("https://opomboapi.vercel.app/db/posts.json")
       .then((res) => res.json())
       .then((dt) => setPosts(dt["posts"]))
-      .catch((err) => {
-        setPosts([]);
-        document.location.reload();
-      });
   });
   return (
     <main>

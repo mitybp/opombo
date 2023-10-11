@@ -11,10 +11,6 @@ const Galeria = () => {
       .then((data) => {
         data[0].id === 0 ? setPosts(data.reverse()) : setPosts(data);
       })
-      .catch((err) => {
-        setPosts([]);
-        document.location.reload();
-      });
   });
 
   document.title = "Galeria - O Pombo Jornal";

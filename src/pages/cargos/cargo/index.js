@@ -11,19 +11,11 @@ const Cargo = () => {
   document.title = "Cargos - O Pombo Jornal";
   let cargos = ["Redação", "Edição", "Repórteres"];
   useEffect(() => {
-    function fetchData() {
       fetch("https://opomboapi.vercel.app/db/cargos.json")
         .then((res) => res.json())
         .then((data) => {
           setPessoas(data[cargo]);
         })
-        .catch((err) => {
-          setPessoas([]);
-          document.location.reload();
-        });
-    }
-
-    fetchData();
   });
   return (
     <main>

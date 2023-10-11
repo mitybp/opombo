@@ -23,10 +23,6 @@ const Home = () => {
         setTags(data["tags"]);
         setLinkTags(data["colorTags"]);
       })
-      .catch((err) => {
-        setPosts([]);
-        document.location.reload();
-      });
   });
 
   console.error = console.warn = () => {};

@@ -19,10 +19,6 @@ const Saved = () => {
               : JSON.parse(localStorage.getItem("saved"))
           );
         })
-        .catch(err=>{
-          setPosts([]);
-          document.location.reload();
-        });
   });
 
   document.title = "Salvos - O Pombo Jornal";

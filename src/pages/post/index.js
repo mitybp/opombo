@@ -43,10 +43,6 @@ const Post = () => {
           }
         });
       })
-      .catch((err) => {
-        setData({});
-        document.location.reload();
-      });
 
     data.content
       ? setMinuteRead(

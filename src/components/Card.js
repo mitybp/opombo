@@ -23,7 +23,7 @@ const Card = ({ post }) => {
     "aula-de-campo": "#A8C6FF",
     "contos-e-cronicas": "#E1EDB9",
   };
-  return (
+  return post? (
     <CardContainer>
       <CardTag style={{ backgroundColor: card_colors[post.tag] }}>
         {card_tagsUpper[post.tag]}
@@ -41,7 +41,7 @@ const Card = ({ post }) => {
         ・ {post.date}
       </p>
     </CardContainer>
-  );
+  ):"";
 };
 
 export default Card;

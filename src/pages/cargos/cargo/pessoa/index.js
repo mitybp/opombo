@@ -12,30 +12,18 @@ const Pessoa = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    function fetchData() {
-      fetch("https://opomboapi.vercel.app/db/cargos.json")
-        .then((res) => res.json())
-        .then((dt) => {
-          dt[cargo].map((p) => {
-            if (strFormat(p[0]) === nome) {
-              setPessoa(p);
-            }
-          });
-        })
-        .catch((err) => {
-          setPessoa([]);
-          document.location.reload();
+    fetch("https://opomboapi.vercel.app/db/cargos.json")
+      .then((res) => res.json())
+      .then((dt) => {
+        dt[cargo].map((p) => {
+          if (strFormat(p[0]) === nome) {
+            setPessoa(p);
+          }
         });
-      fetch("https://opomboapi.vercel.app/db/posts.json")
-        .then((res) => res.json())
-        .then((dt) => setPosts(dt["posts"]))
-        .catch((err) => {
-          setPosts([]);
-          document.location.reload();
-        });
-    }
-
-    fetchData();
+      })
+    fetch("https://opomboapi.vercel.app/db/posts.json")
+      .then((res) => res.json())
+      .then((dt) => setPosts(dt["posts"]))
   });
   return (
     <main>
