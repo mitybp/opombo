@@ -34,7 +34,7 @@ const Cargo = () => {
       <CardList>
         {
           pessoas?(pessoas.map((p, index) => (
-          <CardSimple key={index} href={`/cargos/${cargo}/${strFormat(p[0])}`}>
+          <CardSimple key={index} href={`/${cargo}/${strFormat(p[0])}`}>
             {p[0]}
           </CardSimple>
         ))):(
