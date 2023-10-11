@@ -105,6 +105,7 @@ const Post = () => {
                 />
                 <PostShareBar>
                   <button
+                    title="Copiar link"
                     onClick={() => {
                       navigator.clipboard.writeText(`${data.title}, por ${data.author} - O Pombo Jornal. https://opombo.page.link/${data.id}`);
                       setCopied(true);
@@ -114,12 +115,14 @@ const Post = () => {
                     {copied?<Check/>:<Copy />}
                   </button>
                   <a
+                    title="Compartilhar no Twitter"
                     target="_blank"
                     href={`http://twitter.com/intent/tweet?text=${data.title}, por ${data.author} - O Pombo Jornal. https://opombo.page.link/${data.id}`}
                   >
                     <TwitterLogo />
                   </a>
                   <a
+                    title="Compartilhar no WhatsApp"
                     target="_blank"
                     href={`http://api.whatsapp.com/send?text=${data.title}, por ${data.author} - O Pombo Jornal. https://opombo.page.link/${data.id}`}
                   >

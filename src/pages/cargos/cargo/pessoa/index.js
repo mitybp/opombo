@@ -24,7 +24,7 @@ const Pessoa = () => {
         });
       fetch("https://opomboapi.vercel.app/db/posts.json")
         .then(res=>res.json())
-        .then(dt=>setPosts(dt.posts))
+        .then(dt=>setPosts(dt["posts"]))
     }
 
     fetchData();
