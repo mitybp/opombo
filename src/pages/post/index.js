@@ -66,15 +66,7 @@ const Post = () => {
               {tagUpper[data.tag]}
             </PostTag>
             <PostTitle>{data.title}</PostTitle>
-            <PostInfo>
-              <a
-                style={{ color: "#444", textDecoration: "none" }}
-                href={`/redacao/${strFormat(data.author)}`}
-              >
-                {data.author}
-              </a>{" "}
-              ・ {data.date}・ {minuteRead} min de leitura
-            </PostInfo>
+            <PostInfo>{data.author} ・ {data.date}・ {minuteRead} min de leitura</PostInfo>
             <PostInfo>
               <PostButton
                 onClick={() => {

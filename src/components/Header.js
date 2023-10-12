@@ -40,9 +40,9 @@ const Header = () => {
           <HeaderMenuLink href="/salvos">
             Salvos
           </HeaderMenuLink>
-          <HeaderMenuLink href="/cargos">
+          {/* <HeaderMenuLink href="/cargos">
             Cargos
-          </HeaderMenuLink>
+          </HeaderMenuLink> */}
           <HeaderMenuLink href="/blog">
             Blog
           </HeaderMenuLink>

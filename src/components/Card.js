@@ -31,15 +31,7 @@ const Card = ({ post }) => {
       <CardTitle href={`/materia/${strFormat(post.title)}`}>
         {post.title}
       </CardTitle>
-      <p>
-        <a
-          style={{ color: "#222", textDecoration: "none" }}
-          href={`/redacao/${strFormat(post.author)}`}
-        >
-          {post.author}
-        </a>{" "}
-        ・ {post.date}
-      </p>
+      <p>{post.author} ・ {post.date}</p>
     </CardContainer>
   ):"";
 };

@@ -14,7 +14,7 @@ const Bio = () => {
       <BioButton href="/interclasse">Interclasse ⚽</BioButton>
       <BioButton href="/galeria">Galeria 🖼️</BioButton>
       <BioButton href="/blog">Blog 🤳</BioButton>
-      <BioButton href="/cargos/redatores">Autores ✍️</BioButton>
+      {/* <BioButton href="/cargos/redatores">Autores ✍️</BioButton> */}
       <BioButton href="https://instagram.com/opombo.jornal" target="_blank">
         Instagram
       </BioButton>
