@@ -383,6 +383,8 @@ export const HeaderMenuContent = styled.div`
     flex-direction: column;
     gap: 10px;
     z-index: 999;
+    display: flex;
+    transform: translateX(500px);
 
     @media (max-width: 550px){
         width: auto;
