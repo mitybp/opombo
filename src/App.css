@@ -21,7 +21,9 @@ hr{
   border: 1px solid #ccc;
   width: 100%;
 }
-
+body{
+  overflow-x: hidden;
+}
 
 * {
   margin: 0;
