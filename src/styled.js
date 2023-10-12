@@ -385,6 +385,7 @@ export const HeaderMenuContent = styled.div`
     z-index: 999;
     display: flex;
     transform: translateX(500px);
+    transition: 0.2s all ease-in-out;
 
     @media (max-width: 550px){
         width: auto;
