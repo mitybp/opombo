@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import Header from "../../components/Header";
 import ScrollIndictor from "../../components/ScrollIndictor";
 import Loading from "../../components/Loading";
-import { card_colors } from "../../api";
 import {
   PostHeader,
   PostTag,
@@ -31,7 +30,17 @@ const Post = () => {
   const [data, setData] = useState({});
   const [minuteRead, setMinuteRead] = useState(0);
   const [copied, setCopied] = useState(false);
-
+  let card_colors = {
+    "exposicao-artistica": "#B9EDC8",
+    "ciencia-e-filosofia": "#A8C6C3",
+    "eventos": "#E4C9A2",
+    "noticia": "#B9E8ED",
+    "pesquisa-e-estatistica": "#FFA8B3",
+    "artigo-de-opiniao": "#E6B9ED",
+    "aula-de-campo": "#A8C6FF",
+    "contos-e-cronicas": "#E1EDB9",
+    "escola-por-dentro": "#FEE57E"
+  };
   useEffect(() => {
     fetch("https://opomboapi.vercel.app/db/posts.json")
       .then((res) => res.json())
