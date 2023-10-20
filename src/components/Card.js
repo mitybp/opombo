@@ -11,6 +11,7 @@ const Card = ({ post }) => {
     "artigo-de-opiniao": "Artigo de opinião",
     "aula-de-campo": "Aula de campo",
     "contos-e-cronicas": "Contos e crônicas",
+    "escola-por-dentro": "Escola Por Dentro"
   };
 
   let card_colors = {
@@ -22,6 +23,7 @@ const Card = ({ post }) => {
     "artigo-de-opiniao": "#E6B9ED",
     "aula-de-campo": "#A8C6FF",
     "contos-e-cronicas": "#E1EDB9",
+    "escola-por-dentro": "#FEE57E"
   };
   return post? (
     <CardContainer>
