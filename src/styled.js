@@ -203,10 +203,6 @@ export const PostInfo = styled.div && styled.p`
 `
 export const PostCredit = styled.p`
     padding: 6px 0;
-    border-bottom: 1px solid #ccc;
-    &:last-child{
-        border-bottom: none;
-    }
 `
 export const PostSpeechButton = styled.div`
     display: flex;
