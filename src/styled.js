@@ -154,6 +154,12 @@ export const HomeDropdownButton = styled.button`
     font-size: 15px;
     padding: 0 10px;
     cursor: pointer;
+    span{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.2s;
+    }
 `
 export const HomeDivisor = styled.div`
     border-bottom: 1px solid #ccc;
@@ -372,7 +378,7 @@ export const HeaderMenuContent = styled.div`
     top: 70px;
     right: 40px;
     width: 18rem;
-    background-color: #f4f4f4;
+    background-color: #fff;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;

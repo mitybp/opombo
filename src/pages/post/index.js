@@ -20,6 +20,7 @@ import {
   TwitterLogo,
   WhatsappLogo,
   Check,
+  CaretLeft,
 } from "@phosphor-icons/react";
 import Text2Speech from "../../components/Text2Speech";
 import { strFormat } from "../../api/strFormat";
@@ -33,14 +34,35 @@ const Post = () => {
   let card_colors = {
     "exposicao-artistica": "#B9EDC8",
     "ciencia-e-filosofia": "#A8C6C3",
-    "eventos": "#E4C9A2",
-    "noticia": "#B9E8ED",
+    eventos: "#E4C9A2",
+    noticia: "#B9E8ED",
     "pesquisa-e-estatistica": "#FFA8B3",
     "artigo-de-opiniao": "#E6B9ED",
     "aula-de-campo": "#A8C6FF",
     "contos-e-cronicas": "#E1EDB9",
-    "escola-por-dentro": "#FEE57E"
+    "escola-por-dentro": "#FEE57E",
   };
+
+  function setPostSave() {
+    let saved = JSON.parse(localStorage.getItem("saved"));
+
+    if (saved.includes(data.id)) {
+      saved.splice(saved.indexOf(data.id), 1);
+      localStorage.setItem("saved", JSON.stringify(saved));
+    } else {
+      saved.push(data.id);
+      localStorage.setItem("saved", JSON.stringify(saved));
+    }
+  }
+
+  function copyShareLink() {
+    navigator.clipboard.writeText(
+      `${data.title}, por ${data.author} - O Pombo Jornal. https://opombo.page.link/${data.id}`
+    );
+    setCopied(true);
+    setTimeout(() => setCopied(false), 5000);
+  }
+
   useEffect(() => {
     fetch("https://opomboapi.vercel.app/db/posts.json")
       .then((res) => res.json())
@@ -51,7 +73,7 @@ const Post = () => {
             setData(p);
           }
         });
-      })
+      });
 
     data.content
       ? setMinuteRead(
@@ -75,23 +97,11 @@ const Post = () => {
               {tagUpper[data.tag]}
             </PostTag>
             <PostTitle>{data.title}</PostTitle>
-            <PostInfo>{data.author} ・ {data.date}・ {minuteRead} min de leitura</PostInfo>
             <PostInfo>
-              <PostButton
-                onClick={() => {
-                  if (localStorage.getItem("saved") == null)
-                    localStorage.setItem("saved", "[]");
-                  let saved = JSON.parse(localStorage.getItem("saved"));
-
-                  if (saved.includes(data.id)) {
-                    saved.splice(saved.indexOf(data.id), 1);
-                    localStorage.setItem("saved", JSON.stringify(saved));
-                  } else {
-                    saved.push(data.id);
-                    localStorage.setItem("saved", JSON.stringify(saved));
-                  }
-                }}
-              >
+              {data.author} ・ {data.date}・ {minuteRead} min de leitura
+            </PostInfo>
+            <PostInfo>
+              <PostButton onClick={setPostSave}>
                 {JSON.parse(localStorage.getItem("saved")).includes(data.id)
                   ? "Remover dos salvos"
                   : "Salvar matéria"}
@@ -103,16 +113,7 @@ const Post = () => {
                   }
                 />
                 <PostShareBar>
-                  <button
-                    title="Copiar link"
-                    onClick={() => {
-                      navigator.clipboard.writeText(
-                        `${data.title}, por ${data.author} - O Pombo Jornal. https://opombo.page.link/${data.id}`
-                      );
-                      setCopied(true);
-                      setTimeout(() => setCopied(false), 5000);
-                    }}
-                  >
+                  <button title="Copiar link" onClick={copyShareLink}>
                     {copied ? <Check /> : <Copy />}
                   </button>
                   <a
@@ -148,6 +149,24 @@ const Post = () => {
                   </PostCredit>
                 ))
               : ""}
+            <PostInfo>
+              <PostButton
+                href={
+                  data.id === 0 ? "" : `https://opombo.page.link/${data.id - 1}`
+                }
+              >
+                Matéria anterior
+              </PostButton>
+              <PostButton
+                href={
+                  data.id === 21
+                    ? ""
+                    : `https://opombo.page.link/${data.id + 1}`
+                }
+              >
+                Próxima matéria
+              </PostButton>
+            </PostInfo>
             <PostGoTopButton
               href="#"
               style={{ display: window.scrollY >= 80 ? "flex" : "none" }}

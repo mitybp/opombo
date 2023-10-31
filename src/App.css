@@ -103,13 +103,22 @@ details{
 
 
 .home-tab-tags-list{
+  position: absolute;
+  z-index: 999;
   padding: 14px;
-  justify-content: center;
-  align-items: center;
+  border: 1px solid #ccc;
+  background-color: #fff;
   flex-wrap: wrap;
   gap: 6px;
-  margin: 0 20px;
+  margin-inline: 10px;
   list-style: none;
+  border-radius: 8px;
+  width: 20rem;
+  display: flex;
+  transition: 0.2s;
+  @media (max-width: 550px) {
+    width: calc(100% - 20px);
+  }
 }
 .home-tab-tag-btn{
   outline: none;
@@ -119,6 +128,7 @@ details{
   cursor: pointer;
   font-size: 14px;
   padding: 6px 12px;
+  background-color: #fff;
 }
 .home-card-list:not(.react-tabs__tab-panel--selected) {
   display: none;

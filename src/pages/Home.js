@@ -2,16 +2,17 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Card from "../components/Card";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import { CaretDown, CaretUp } from "@phosphor-icons/react";
+import { ArrowFatLineLeft } from "@phosphor-icons/react";
 import Loading from "../components/Loading";
-import { HomeDivisor, HomeDropdownButton } from "../styled";
+import { HomeDropdownButton } from "../styled";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
   const [tags, setTags] = useState([]);
   const [actTag, setActTag] = useState("Todas");
-  const [dropdown, setDropdown] = useState(true);
+  const [dropdown, setDropdown] = useState(false);
   const [colorTags, setLinkTags] = useState([]);
+
 
   useEffect(() => {
     fetch("https://opomboapi.vercel.app/db/posts.json")
@@ -22,7 +23,7 @@ const Home = () => {
         );
         setTags(data["tags"]);
         setLinkTags(data["colorTags"]);
-      })
+      });
   });
 
   console.error = console.warn = () => {};
@@ -34,11 +35,20 @@ const Home = () => {
       <Tabs>
         <div>
           <HomeDropdownButton onClick={() => setDropdown(!dropdown)}>
-            {dropdown ? <CaretUp /> : <CaretDown />} {actTag}
+            <span
+              style={{
+                rotate: dropdown ? "0deg" : "180deg",
+              }}
+            >
+              <ArrowFatLineLeft />
+            </span>{" "}
+            {actTag}
           </HomeDropdownButton>
         </div>
         <TabList
-          style={{ display: dropdown ? "flex" : "none" }}
+          style={{
+            transform: dropdown ? "translateX(0)" : "translateX(-500px)",
+          }}
           className="home-tab-tags-list"
         >
           {colorTags.map((tt) => {
@@ -46,7 +56,7 @@ const Home = () => {
               <Tab
                 key={tt[0]}
                 style={{
-                  backgroundColor: tt[0] === actTag ? tt[1] : "transparent",
+                  backgroundColor: tt[0] === actTag ? tt[1] : "#fff",
                   borderColor: tt[0] === actTag ? tt[1] : "#ccc",
                 }}
                 className="home-tab-tag-btn"
@@ -57,8 +67,6 @@ const Home = () => {
             );
           })}
         </TabList>
-        <HomeDivisor />
-
         <TabPanel key={0} className="home-card-list">
           {posts.map((p) => (
             <Card key={p.id} post={p} />

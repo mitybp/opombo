@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { List, MagnifyingGlass, X } from "@phosphor-icons/react";
+import { Bookmarks, List, MagnifyingGlass, X } from "@phosphor-icons/react";
 import { HeaderContainer, HeaderLogo, HeaderMenuButton, HeaderMenuContent, HeaderMenuLink } from "../styled";
 
 const Header = () => {
@@ -20,7 +20,10 @@ const Header = () => {
         <HeaderMenuButton style={{marginRight: 4}} onClick={()=>document.location.pathname="/pesquisar"}>
           <MagnifyingGlass style={{ transform: "translateY(2px)" }} />
         </HeaderMenuButton>
-        <HeaderMenuButton
+        <HeaderMenuButton onClick={()=>document.location.pathname="/salvos"}>
+          <Bookmarks style={{ transform: "translateY(2px)" }}/>
+        </HeaderMenuButton>
+        {/* <HeaderMenuButton
           onClick={() => setDdState(!ddState)}
         >
           {ddState ? (
@@ -40,18 +43,6 @@ const Header = () => {
           <HeaderMenuLink href="/salvos">
             Salvos
           </HeaderMenuLink>
-          {/* <HeaderMenuLink href="/cargos">
-            Cargos
-          </HeaderMenuLink> */}
-          <HeaderMenuLink href="/blog">
-            Blog
-          </HeaderMenuLink>
-          <HeaderMenuLink href="/galeria">
-            Galeria de fotos
-          </HeaderMenuLink>
-          <HeaderMenuLink href="/interclasse">
-            Interclasse
-          </HeaderMenuLink>
           <hr/>
           <HeaderMenuLink
             target="_blank"
@@ -65,7 +56,7 @@ const Header = () => {
           >
             Colégio Integral
           </HeaderMenuLink>
-        </HeaderMenuContent>
+        </HeaderMenuContent> */}
       </div>
     </HeaderContainer>
   );
