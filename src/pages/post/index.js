@@ -31,6 +31,7 @@ const Post = () => {
   const [data, setData] = useState({});
   const [minuteRead, setMinuteRead] = useState(0);
   const [copied, setCopied] = useState(false);
+  const [postsLength, setPostsLength] = useState(0);
   let card_colors = {
     "exposicao-artistica": "#B9EDC8",
     "ciencia-e-filosofia": "#A8C6C3",
@@ -68,6 +69,7 @@ const Post = () => {
       .then((res) => res.json())
       .then((dt) => {
         setTagUpper(dt["tagsUpper"]);
+        setPostsLength(dt["posts"].length)
         dt["posts"].map((p) => {
           if (strFormat(p.title) === post_title) {
             setData(p);
@@ -149,18 +151,20 @@ const Post = () => {
                   </PostCredit>
                 ))
               : ""}
-            <PostInfo>
+            <PostInfo style={{display: "flex", gap: 6, width: "100%", paddingBottom: 20}}>
               <PostButton
+                disabled={data.id===0?true:false}
                 href={
-                  data.id === 0 ? "" : `https://opombo.page.link/${data.id - 1}`
+                  data.id === 0 ? document.location.href : `https://opombo.page.link/${data.id - 1}`
                 }
               >
                 Matéria anterior
               </PostButton>
               <PostButton
+                disabled={data.id===postsLength-1?true:false}
                 href={
-                  data.id === 21
-                    ? ""
+                  data.id === postsLength
+                    ? document.location.href
                     : `https://opombo.page.link/${data.id + 1}`
                 }
               >

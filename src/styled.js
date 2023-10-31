@@ -192,6 +192,10 @@ export const PostButton = styled.button`
     height: 40px;
     width: auto;
     color: #000;
+    &:disabled{
+        opacity: 0.8;
+        cursor: default;
+    }
 `
 export const PostTitle = styled.h1`
     margin-inline: 20%;
