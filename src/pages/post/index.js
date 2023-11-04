@@ -64,17 +64,6 @@ const Post = () => {
     setTimeout(() => setCopied(false), 5000);
   }
 
-  function nextPost() {
-    data.id === postsLength
-      ? (document.location.href = document.location.href)
-      : (document.location.href = `https://opombo.page.link/${data.id + 1}`);
-  }
-
-  function previousPost() {
-    data.id === 0
-      ? (document.location.href = document.location.href)
-      : (document.location.href = `https://opombo.page.link/${data.id - 1}`);
-  }
 
   useEffect(() => {
     fetch("https://opomboapi.vercel.app/db/posts.json")
@@ -163,27 +152,6 @@ const Post = () => {
                   </PostCredit>
                 ))
               : ""}
-            <PostInfo
-              style={{
-                display: "flex",
-                gap: 6,
-                width: "100%",
-                paddingBottom: 20,
-              }}
-            >
-              <PostButton
-                disabled={data.id === 0 ? true : false}
-                onClick={previousPost}
-              >
-                Matéria anterior
-              </PostButton>
-              <PostButton
-                disabled={data.id === postsLength - 1 ? true : false}
-                onClick={nextPost}
-              >
-                Próxima matéria
-              </PostButton>
-            </PostInfo>
             <PostGoTopButton
               href="#"
               style={{ display: window.scrollY >= 80 ? "flex" : "none" }}
