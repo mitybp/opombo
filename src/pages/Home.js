@@ -60,7 +60,7 @@ const Home = () => {
                   borderColor: tt[0] === actTag ? tt[1] : "#ccc",
                 }}
                 className="home-tab-tag-btn"
-                onClick={() => setActTag(tt[0])}
+                onClick={() => {setActTag(tt[0]); setDropdown(false)}}
               >
                 {tt[0]}
               </Tab>
