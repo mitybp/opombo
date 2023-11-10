@@ -23,8 +23,7 @@ const Search = () => {
       .then((dt) => setPosts(dt["posts"]))
   });
   return (
-    <main>
-      <Header />
+    <>
       <Container>
         <h1>Pesquisar</h1>
         <SearchInputContainer>
@@ -50,7 +49,7 @@ const Search = () => {
           : "Digite algo para pesquisar"}
       </CardList>
       <Loading visible={posts.length === 0 ? true : false} />
-    </main>
+    </>
   );
 };
 

@@ -4,8 +4,7 @@ import { Container, Button } from "../../styled";
 const About = () => {
   document.title = "Sobre - O Pombo Jornal";
   return (
-    <main>
-      <Header />
+    <>
       <Container>
         <h1>Sobre nós</h1>
         <p className="content-p">
@@ -23,7 +22,7 @@ const About = () => {
           diariamente na checagem dos mesmos, evitando as famosas fake-news.
         </p>
       </Container>
-    </main>
+    </>
   );
 };
 export default About;

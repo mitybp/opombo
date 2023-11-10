@@ -20,18 +20,15 @@ import {
   TwitterLogo,
   WhatsappLogo,
   Check,
-  CaretLeft,
+  BookmarkSimple,
 } from "@phosphor-icons/react";
 import Text2Speech from "../../components/Text2Speech";
 import { strFormat } from "../../api/strFormat";
 
 const Post = () => {
   const { post_title } = useParams();
-  const [tagUpper, setTagUpper] = useState({});
   const [data, setData] = useState({});
-  const [minuteRead, setMinuteRead] = useState(0);
   const [copied, setCopied] = useState(false);
-  const [postsLength, setPostsLength] = useState(0);
   let card_colors = {
     "exposicao-artistica": "#B9EDC8",
     "ciencia-e-filosofia": "#A8C6C3",
@@ -43,6 +40,17 @@ const Post = () => {
     "contos-e-cronicas": "#E1EDB9",
     "escola-por-dentro": "#FEE57E",
   };
+  const tagUpper ={
+    "exposicao-artistica": "Exposição artística",
+    "ciencia-e-filosofia": "Ciência e filosofia",
+    "eventos": "Eventos",
+    "noticia": "Notícia",
+    "pesquisa-e-estatistica": "Pesquisa e estatística",
+    "artigo-de-opiniao": "Artigo de opinião",
+    "aula-de-campo": "Aula de campo",
+    "contos-e-cronicas": "Contos e crônicas",
+    "escola-por-dentro": "Escola Por Dentro"
+}
 
   function setPostSave() {
     let saved = JSON.parse(localStorage.getItem("saved"));
@@ -64,36 +72,16 @@ const Post = () => {
     setTimeout(() => setCopied(false), 5000);
   }
 
-  function nextPost() {
-    data.id === postsLength
-      ? (document.location.href = document.location.href)
-      : (document.location.href = `https://opombo.page.link/${data.id + 1}`);
-  }
-
-  function previousPost() {
-    data.id === 0
-      ? (document.location.href = document.location.href)
-      : (document.location.href = `https://opombo.page.link/${data.id - 1}`);
-  }
-
   useEffect(() => {
     fetch("https://opomboapi.vercel.app/db/posts.json")
       .then((res) => res.json())
       .then((dt) => {
-        setTagUpper(dt["tagsUpper"]);
-        setPostsLength(dt["posts"].length);
         dt["posts"].map((p) => {
           if (strFormat(p.title) === post_title) {
             setData(p);
           }
         });
       });
-
-    data.content
-      ? setMinuteRead(
-          Math.ceil(data.content.toString().trim().split(/\s+/).length / 200)
-        )
-      : setMinuteRead(0);
   });
 
   document.title = data.title
@@ -101,8 +89,7 @@ const Post = () => {
     : "Postagem não encontrada - O Pombo Jornal";
 
   return (
-    <main>
-      <Header />
+    <>
       <ScrollIndictor color={card_colors[data.tag]} />
       {data.title !== undefined ? (
         <div>
@@ -112,13 +99,11 @@ const Post = () => {
             </PostTag>
             <PostTitle>{data.title}</PostTitle>
             <PostInfo>
-              {data.author} ・ {data.date}・ {minuteRead} min de leitura
+              {data.author} ・ {data.date}
             </PostInfo>
             <PostInfo>
               <PostButton onClick={setPostSave}>
-                {JSON.parse(localStorage.getItem("saved")).includes(data.id)
-                  ? "Remover dos salvos"
-                  : "Salvar matéria"}
+                {JSON.parse(localStorage.getItem("saved")).includes(data.id)?"Remover dos salvos":"Salvar matéria"}
               </PostButton>
               <div style={{ display: "flex", gap: 4, marginTop: 4 }}>
                 <Text2Speech
@@ -163,27 +148,6 @@ const Post = () => {
                   </PostCredit>
                 ))
               : ""}
-            <PostInfo
-              style={{
-                display: "flex",
-                gap: 6,
-                width: "100%",
-                paddingBottom: 20,
-              }}
-            >
-              <PostButton
-                disabled={data.id === 0 ? true : false}
-                onClick={previousPost}
-              >
-                Matéria anterior
-              </PostButton>
-              <PostButton
-                disabled={data.id === postsLength - 1 ? true : false}
-                onClick={nextPost}
-              >
-                Próxima matéria
-              </PostButton>
-            </PostInfo>
             <PostGoTopButton
               href="#"
               style={{ display: window.scrollY >= 80 ? "flex" : "none" }}
@@ -198,7 +162,7 @@ const Post = () => {
         </div>
       )}
       <Loading visible={data ? false : true} />
-    </main>
+    </>
   );
 };
 

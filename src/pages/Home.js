@@ -11,8 +11,19 @@ const Home = () => {
   const [tags, setTags] = useState([]);
   const [actTag, setActTag] = useState("Todas");
   const [dropdown, setDropdown] = useState(false);
-  const [colorTags, setLinkTags] = useState([]);
 
+  const colorTags = [
+    ["Todas", "#b3b9ff"],
+        ["Exposição artística", "#B9EDC8"],
+        ["Ciência e filosofia", "#A8C6C3"],
+        ["Eventos", "#E4C9A2"],
+        ["Notícia", "#B9E8ED"],
+        ["Pesquisa e estatística", "#FFA8B3"],
+        ["Artigo de opinião", "#E6B9ED"],
+        ["Aula de campo", "#A8C6FF"],
+        ["Contos e crônicas", "#E1EDB9"],
+        ["Escola Por Dentro", "#FEE57E"]
+  ]
 
   useEffect(() => {
     fetch("https://opomboapi.vercel.app/db/posts.json")
@@ -22,7 +33,6 @@ const Home = () => {
           data["posts"][0].id === 0 ? data["posts"].reverse() : data["posts"]
         );
         setTags(data["tags"]);
-        setLinkTags(data["colorTags"]);
       });
   });
 
@@ -30,8 +40,7 @@ const Home = () => {
   document.title = "Jornal O Pombo";
 
   return (
-    <main>
-      <Header />
+    <>
       <Tabs>
         <div>
           <HomeDropdownButton onClick={() => setDropdown(!dropdown)}>
@@ -60,7 +69,7 @@ const Home = () => {
                   borderColor: tt[0] === actTag ? tt[1] : "#ccc",
                 }}
                 className="home-tab-tag-btn"
-                onClick={() => setActTag(tt[0])}
+                onClick={() => {setActTag(tt[0]); setDropdown(false)}}
               >
                 {tt[0]}
               </Tab>
@@ -88,7 +97,7 @@ const Home = () => {
         })}
       </Tabs>
       <Loading visible={posts.length === 0 ? true : false} />
-    </main>
+    </>
   );
 };
 

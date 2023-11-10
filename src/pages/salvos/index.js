@@ -24,8 +24,7 @@ const Saved = () => {
   document.title = "Salvos - O Pombo Jornal";
 
   return (
-    <main>
-      <Header />
+    <>
       <Container>
         <h1>Salvos</h1>
       </Container>
@@ -37,7 +36,7 @@ const Saved = () => {
         )}
       </CardList>
       <Loading visible={posts.length===0?true:false}/>
-    </main>
+    </>
   );
 };
 

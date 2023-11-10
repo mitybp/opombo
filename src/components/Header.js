@@ -9,7 +9,7 @@ const Header = () => {
       <HeaderLogo href="/">
         <img
           src="https://opomboapi.vercel.app/logo-circle.png"
-          style={{ width: 55 }}
+          style={{ width: 40 }}
           alt="logo"
         />
         <span>
@@ -20,10 +20,7 @@ const Header = () => {
         <HeaderMenuButton style={{marginRight: 4}} onClick={()=>document.location.pathname="/pesquisar"}>
           <MagnifyingGlass style={{ transform: "translateY(2px)" }} />
         </HeaderMenuButton>
-        <HeaderMenuButton onClick={()=>document.location.pathname="/salvos"}>
-          <Bookmarks style={{ transform: "translateY(2px)" }}/>
-        </HeaderMenuButton>
-        {/* <HeaderMenuButton
+        <HeaderMenuButton
           onClick={() => setDdState(!ddState)}
         >
           {ddState ? (
@@ -41,9 +38,11 @@ const Header = () => {
             Sobre nós
           </HeaderMenuLink>
           <HeaderMenuLink href="/salvos">
-            Salvos
+            Matérias salvas
           </HeaderMenuLink>
-          <hr/>
+          <HeaderMenuLink href="/espaco-aberto">
+            Espaço Aberto
+          </HeaderMenuLink>
           <HeaderMenuLink
             target="_blank"
             href="https://instagram.com/opombo.jornal"
@@ -52,11 +51,11 @@ const Header = () => {
           </HeaderMenuLink>
           <HeaderMenuLink
             target="_blank"
-            href="https://colegiointegral.com.br"
+            href="https://youtube.com/@opombojornal"
           >
-            Colégio Integral
+            Podcast
           </HeaderMenuLink>
-        </HeaderMenuContent> */}
+        </HeaderMenuContent>
       </div>
     </HeaderContainer>
   );
