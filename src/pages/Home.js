@@ -56,7 +56,7 @@ const Home = () => {
         </div>
         <TabList
           style={{
-            transform: dropdown ? "translateX(0)" : "translateX(-500px)",
+            transform: dropdown ? "translateX(0)" : "translateX(-1000px)",
           }}
           className="home-tab-tags-list"
         >

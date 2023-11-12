@@ -151,7 +151,7 @@ main{
 }
 
 @media (max-width: 550px) {
-  .home-card-list{
+  .home-card-list, .project-list{
     padding: 10px;
   }
 }

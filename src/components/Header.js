@@ -31,7 +31,7 @@ const Header = () => {
         </HeaderMenuButton>
         <HeaderMenuContent
           style={{
-            transform: ddState ? "translateX(0)" : "translateX(500px)",
+            transform: ddState ? "translateX(0)" : "translateX(1000px)",
           }}
         >
           <HeaderMenuLink href="/sobre">

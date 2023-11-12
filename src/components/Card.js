@@ -2,7 +2,7 @@ import { Check, BookmarkSimple } from "@phosphor-icons/react";
 import { strFormat } from "../api/strFormat";
 import { CardContainer, CardTag, CardTitle } from "../styled";
 
-const Card = ({ post, isProject }) => {
+const Card = ({ post, isProject, isProjectPost }) => {
   let card_tagsUpper = {
     "exposicao-artistica": "Exposição artística",
     "ciencia-e-filosofia": "Ciência e filosofia",
@@ -37,43 +37,71 @@ const Card = ({ post, isProject }) => {
       localStorage.setItem("saved", JSON.stringify(saved));
     }
   }
-  return post && isProject ? (
-    <CardContainer>
-      <a className="title" href={`/espaco-aberto/${post.class.toLowerCase().replace("°","-")}`}>
-        {post.name}
-      </a>
-      <div>
-        <p className="infos">
-          {post.class}
-        </p>
-      </div>
-    </CardContainer>
-  ) : (
-    <CardContainer>
-      <a className="title" href={`/materia/${strFormat(post.title)}`}>
-        {post.title}
-      </a>
-      <div>
-        <p className="infos">
-          <p className="tag" style={{ backgroundColor: card_colors[post.tag] }}>
-            {card_tagsUpper[post.tag]}
-          </p>
-          <p>
-            {post.author} ・ {post.date}
-          </p>
-        </p>
-        <button onClick={setPostSave}>
-          <BookmarkSimple
-            weight={
-              JSON.parse(localStorage.getItem("saved")).includes(post.id)
-                ? "fill"
-                : "regular"
-            }
-          />
-        </button>
-      </div>
-    </CardContainer>
-  );
+  if(post!=undefined){
+    if (isProject===true) {
+      if(isProjectPost===true){
+        return(
+          <CardContainer>
+            <a
+              className="title"
+              href={`/espaco-aberto/${strFormat(post.name)}/${strFormat(post.title)}`}
+            >
+              {post.title}
+            </a>
+            <div>
+              <p className="infos">{post.author} ・ {post.date}</p>
+            </div>
+          </CardContainer>
+        );
+      }else{
+        return (
+          <CardContainer>
+            <a
+              className="title"
+              href={`/espaco-aberto/${
+                strFormat(post.name)
+              }`}
+            >
+              {post.name}
+            </a>
+            <div>
+              <p className="infos">{post.class}</p>
+            </div>
+          </CardContainer>
+        );
+      }
+    } else {
+      return (
+        <CardContainer>
+          <a className="title" href={`/materia/${strFormat(post.title)}`}>
+            {post.title}
+          </a>
+          <div>
+            <p className="infos">
+              <p
+                className="tag"
+                style={{ backgroundColor: card_colors[post.tag] }}
+              >
+                {card_tagsUpper[post.tag]}
+              </p>
+              <p>
+                {post.author} ・ {post.date}
+              </p>
+            </p>
+            <button onClick={setPostSave}>
+              <BookmarkSimple
+                weight={
+                  JSON.parse(localStorage.getItem("saved")).includes(post.id)
+                    ? "fill"
+                    : "regular"
+                }
+              />
+            </button>
+          </div>
+        </CardContainer>
+      );
+    }
+  }
 };
 
 export default Card;

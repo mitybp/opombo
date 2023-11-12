@@ -9,8 +9,8 @@ import Bio from "./pages/bio/index.js";
 import Search from "./pages/pesquisar/index.js";
 import Erro404 from "./pages/Erro404";
 import EspacoAberto from "./pages/espaco-aberto/index.js";
-import EspacoAbertoClass from "./pages/espaco-aberto/class/index.js";
-import EspacoAbertoClassPost from "./pages/espaco-aberto/class/post/index.js";
+import EspacoAbertoProject from "./pages/espaco-aberto/ea-project/index.js";
+import EspacoAbertoProjectPost from "./pages/espaco-aberto/ea-project/ea-post/index.js";
 import Header from "./components/Header.js";
 
 function App() {
@@ -30,8 +30,8 @@ function App() {
           element={<EspacoAberto />}
           errorElement={<Erro404 />}
         />
-        <Route path="/espaco-aberto/:project-class/" element={<EspacoAbertoClass />} />
-        <Route path="/espaco-aberto/:project-class/:post-title" element={<EspacoAbertoClassPost />} />
+        <Route path="/espaco-aberto/:projectName/" element={<EspacoAbertoProject />} />
+        <Route path="/espaco-aberto/:projectName/:postTitle" element={<EspacoAbertoProjectPost />} />
         <Route path="/salvos/" element={<Saved />} />
         <Route path="/sobre/" element={<About />} />
         <Route path="/bio/" element={<Bio />} />
