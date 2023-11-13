@@ -29,6 +29,8 @@ const Post = () => {
   const { post_title } = useParams();
   const [data, setData] = useState({});
   const [copied, setCopied] = useState(false);
+  const [minuteRead, setMinuteRead] = useState(0);
+
   let card_colors = {
     "exposicao-artistica": "#B9EDC8",
     "ciencia-e-filosofia": "#A8C6C3",
@@ -79,6 +81,7 @@ const Post = () => {
         dt["posts"].map((p) => {
           if (strFormat(p.title) === post_title) {
             setData(p);
+            setMinuteRead(Math.ceil(p.content.split(/\s/g).length/200))
           }
         });
       });
@@ -99,7 +102,7 @@ const Post = () => {
             </PostTag>
             <PostTitle>{data.title}</PostTitle>
             <PostInfo>
-              {data.author} ・ {data.date}
+              {data.author} ・ {data.date} ・ {minuteRead} min. de leitura
             </PostInfo>
             <PostInfo>
               <PostButton onClick={setPostSave}>
