@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   text-align: justify;
   margin: 20px 20% 40px 20%;
-  font-size: 18px;
+  font-size: 16px;
 
   &p {
     padding: 4px 0;
@@ -201,9 +201,10 @@ export const PostHeader = styled.div`
   align-items: start;
 `;
 export const PostTag = styled.p`
-  padding: 4px 8px;
+  padding: 3px 8px;
   border-radius: 8px;
   margin-inline: 20%;
+  font-size: smaller;
 
   @media (max-width: 550px) {
     margin-inline: 14px;
@@ -213,7 +214,7 @@ export const PostButton = styled.button`
   background-color: #f4f4f4;
   padding: 6px 12px;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 6px;
   font-size: 12px;
   cursor: pointer;
   margin-top: 10px;
@@ -232,6 +233,7 @@ export const PostInfo =
   styled.div &&
   styled.p`
     margin-inline: 20%;
+    font-size: 16px;
 
     @media (max-width: 550px) {
       margin-inline: 14px;
@@ -259,8 +261,9 @@ export const PostSpeechButton = styled.div`
     padding: 8px;
     width: 35px;
     height: 35px;
-    &:first-child {
-      border-right: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    &:last-child {
+      border-right: none;
     }
   }
 `;
@@ -290,6 +293,7 @@ export const PostShareBar = styled.div`
     justify-content: center;
     border: none;
     border-right: 1px solid #ccc;
+    font-size: 18px;
     &:last-child {
       border: none;
     }

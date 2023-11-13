@@ -46,9 +46,11 @@ const Text2Speech = ({ text }) => {
       <button onClick={handlePlayPause} title={isPaused ? "Retomar" : "Tocar"}>
         {isPaused ? <Play /> : <Pause />}
       </button>
-      <button onClick={handleStop} title="Parar">
-        <Stop />
-      </button>
+      {!isPaused&&(
+        <button onClick={handleStop} title="Parar">
+          <Stop />
+        </button>
+      )}
     </PostSpeechButton>
   );
 };

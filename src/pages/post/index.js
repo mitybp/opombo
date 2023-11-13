@@ -81,7 +81,11 @@ const Post = () => {
         dt["posts"].map((p) => {
           if (strFormat(p.title) === post_title) {
             setData(p);
-            setMinuteRead(Math.ceil(p.content.split(/\s/g).length/200))
+            let contentStr=""
+            p.content.map((paragraph)=>{
+              contentStr+=paragraph
+            })
+            setMinuteRead(Math.ceil(contentStr.split(/\s/g).length/200))
           }
         });
       });
