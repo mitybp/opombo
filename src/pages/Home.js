@@ -12,7 +12,7 @@ const Home = () => {
   const [dropdown, setDropdown] = useState(false);
 
   const colorTags = [
-    ["Todas", "#b3b9ff"],
+    ["Todas", "#f4f4f4"],
     ["Exposição artística", "#B9EDC8"],
     ["Ciência e filosofia", "#A8C6C3"],
     ["Eventos", "#E4C9A2"],
@@ -21,7 +21,7 @@ const Home = () => {
     ["Artigo de opinião", "#E6B9ED"],
     ["Aula de campo", "#A8C6FF"],
     ["Contos e crônicas", "#E1EDB9"],
-    ["Escola Por Dentro", "#FEE57E"],
+    ["Escola Por Dentro", "#FEE57E"]
   ];
 
   useEffect(() => {
