@@ -37,7 +37,6 @@ function App() {
         <Route path="/bio/" element={<Bio />} />
         <Route path="/pesquisar/" element={<Search />} />
         <Route path="*" element={<Erro404 />} />
-        <Route path="/pagina-nao-encontrada" element={<Erro404 />} />
       </Routes>
     </BrowserRouter>
     </main>

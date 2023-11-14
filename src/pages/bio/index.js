@@ -11,14 +11,22 @@ const Bio = () => {
       <BioDivisor />
       <BioButton href="/">Matérias 📑</BioButton>
       <BioButton href="/sobre">Sobre nós 🙋</BioButton>
-      <BioButton href="/interclasse">Interclasse ⚽</BioButton>
-      <BioButton href="/galeria">Galeria 🖼️</BioButton>
-      <BioButton href="/blog">Blog 🤳</BioButton>
+      <BioButton href="/espaco-aberto">Espaço Aberto ✏️</BioButton>
       {/* <BioButton href="/cargos/redatores">Autores ✍️</BioButton> */}
       <BioButton href="https://instagram.com/opombo.jornal" target="_blank">
-        Instagram
+        Instagram 📷
       </BioButton>
-      <br/><p className='copyright'>O Pombo Jornal © {new Date().getFullYear()===2024?"2023-2024":"2023"} - Todos os direitos reservados.</p>
+      <BioButton href="https://youtube.com/@opombojornal" target="_blank">
+        Podcast 🎙️
+      </BioButton>
+      <br />
+      <p className="copyright">
+        O Pombo Jornal ©{" "}
+        {new Date().getFullYear() !== 2023
+          ? "2023-" + new Date().getFullYear()
+          : "2023"}{" "}
+        ・ Todos os direitos reservados.
+      </p>
     </BioContainer>
   );
 };

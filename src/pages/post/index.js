@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Header from "../../components/Header";
 import ScrollIndictor from "../../components/ScrollIndictor";
 import Loading from "../../components/Loading";
 import {
   PostHeader,
   PostTag,
-  PostButton,
   PostTitle,
   PostInfo,
   Container,
@@ -42,17 +40,17 @@ const Post = () => {
     "contos-e-cronicas": "#E1EDB9",
     "escola-por-dentro": "#FEE57E",
   };
-  const tagUpper ={
+  const tagUpper = {
     "exposicao-artistica": "Exposição artística",
     "ciencia-e-filosofia": "Ciência e filosofia",
-    "eventos": "Eventos",
-    "noticia": "Notícia",
+    eventos: "Eventos",
+    noticia: "Notícia",
     "pesquisa-e-estatistica": "Pesquisa e estatística",
     "artigo-de-opiniao": "Artigo de opinião",
     "aula-de-campo": "Aula de campo",
     "contos-e-cronicas": "Contos e crônicas",
-    "escola-por-dentro": "Escola Por Dentro"
-}
+    "escola-por-dentro": "Escola Por Dentro",
+  };
 
   function setPostSave() {
     let saved = JSON.parse(localStorage.getItem("saved"));
@@ -81,11 +79,11 @@ const Post = () => {
         dt["posts"].map((p) => {
           if (strFormat(p.title) === post_title) {
             setData(p);
-            let contentStr=""
-            p.content.map((paragraph)=>{
-              contentStr+=paragraph
-            })
-            setMinuteRead(Math.ceil(contentStr.split(/\s/g).length/200))
+            let contentStr = "";
+            p.content.map((paragraph) => {
+              contentStr += paragraph;
+            });
+            setMinuteRead(Math.ceil(contentStr.split(/\s/g).length / 200));
           }
         });
       });
@@ -105,39 +103,43 @@ const Post = () => {
               {tagUpper[data.tag]}
             </PostTag>
             <PostTitle>{data.title}</PostTitle>
-            <PostInfo>
-              {data.author} ・ {data.date} ・ {minuteRead} min. de leitura
-            </PostInfo>
-            <PostInfo>
-              <PostButton onClick={setPostSave}>
-                {JSON.parse(localStorage.getItem("saved")).includes(data.id)?"Remover dos salvos":"Salvar matéria"}
-              </PostButton>
-              <div style={{ display: "flex", gap: 4, marginTop: 4 }}>
-                <Text2Speech
-                  text={
-                    data.title + ", por" + data.author + ". " + data.content
+            <PostInfo className="flex">
+              <p>
+                {data.author} ・ {data.date} ・ {minuteRead} min. de leitura
+              </p>
+              <button onClick={setPostSave}>
+                <BookmarkSimple
+                  weight={
+                    JSON.parse(localStorage.getItem("saved")).includes(data.id)
+                      ? "fill"
+                      : "regular"
                   }
                 />
-                <PostShareBar>
-                  <button title="Copiar link" onClick={copyShareLink}>
-                    {copied ? <Check /> : <Copy />}
-                  </button>
-                  <a
-                    title="Compartilhar no Twitter"
-                    target="_blank"
-                    href={`http://twitter.com/intent/tweet?text=${data.title}, por ${data.author} - O Pombo Jornal. https://opombo.page.link/${data.id}`}
-                  >
-                    <TwitterLogo />
-                  </a>
-                  <a
-                    title="Compartilhar no WhatsApp"
-                    target="_blank"
-                    href={`http://api.whatsapp.com/send?text=${data.title}, por ${data.author} - O Pombo Jornal. https://opombo.page.link/${data.id}`}
-                  >
-                    <WhatsappLogo />
-                  </a>
-                </PostShareBar>
-              </div>
+              </button>
+            </PostInfo>
+            <PostInfo className="flex-buttons">
+              <Text2Speech
+                text={data.title + ", por" + data.author + ". " + data.content}
+              />
+              <PostShareBar>
+                <button title="Copiar link" onClick={copyShareLink}>
+                  {copied ? <Check /> : <Copy />}
+                </button>
+                <a
+                  title="Compartilhar no Twitter"
+                  target="_blank"
+                  href={`http://twitter.com/intent/tweet?text=${data.title}, por ${data.author} - O Pombo Jornal. https://opombo.page.link/${data.id}`}
+                >
+                  <TwitterLogo />
+                </a>
+                <a
+                  title="Compartilhar no WhatsApp"
+                  target="_blank"
+                  href={`http://api.whatsapp.com/send?text=${data.title}, por ${data.author} - O Pombo Jornal. https://opombo.page.link/${data.id}`}
+                >
+                  <WhatsappLogo />
+                </a>
+              </PostShareBar>
             </PostInfo>
           </PostHeader>
           <Container>

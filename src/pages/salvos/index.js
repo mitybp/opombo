@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Header from "../../components/Header";
 import Card from "../../components/Card";
 import Loading from "../../components/Loading";
 import { Container, CardList } from "../../styled";
@@ -9,16 +8,16 @@ const Saved = () => {
   const [saved, setSaved] = useState([]);
 
   useEffect(() => {
-      fetch("https://opomboapi.vercel.app/db/posts.json")
-        .then((res) => res.json())
-        .then((dt) => {
-          setPosts(dt["posts"]);
-          setSaved(
-            localStorage.getItem("saved") == null
-              ? []
-              : JSON.parse(localStorage.getItem("saved"))
-          );
-        })
+    fetch("https://opomboapi.vercel.app/db/posts.json")
+      .then((res) => res.json())
+      .then((dt) => {
+        setPosts(dt["posts"]);
+        setSaved(
+          localStorage.getItem("saved") == null
+            ? []
+            : JSON.parse(localStorage.getItem("saved"))
+        );
+      });
   });
 
   document.title = "Salvos - O Pombo Jornal";
@@ -35,7 +34,7 @@ const Saved = () => {
           saved.map((id) => <Card post={posts[id]} key={id} />)
         )}
       </CardList>
-      <Loading visible={posts.length===0?true:false}/>
+      <Loading visible={posts.length === 0 ? true : false} />
     </>
   );
 };

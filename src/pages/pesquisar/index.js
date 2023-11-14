@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Header from "../../components/Header";
 import { X } from "@phosphor-icons/react";
 import Card from "../../components/Card";
 import Loading from "../../components/Loading";
@@ -20,7 +19,7 @@ const Search = () => {
   useEffect(() => {
     fetch("https://opomboapi.vercel.app/db/posts.json")
       .then((res) => res.json())
-      .then((dt) => setPosts(dt["posts"]))
+      .then((dt) => setPosts(dt["posts"]));
   });
   return (
     <>

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Header from "../components/Header";
 import Card from "../components/Card";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { ArrowFatLineLeft } from "@phosphor-icons/react";
@@ -14,16 +13,16 @@ const Home = () => {
 
   const colorTags = [
     ["Todas", "#b3b9ff"],
-        ["Exposição artística", "#B9EDC8"],
-        ["Ciência e filosofia", "#A8C6C3"],
-        ["Eventos", "#E4C9A2"],
-        ["Notícia", "#B9E8ED"],
-        ["Pesquisa e estatística", "#FFA8B3"],
-        ["Artigo de opinião", "#E6B9ED"],
-        ["Aula de campo", "#A8C6FF"],
-        ["Contos e crônicas", "#E1EDB9"],
-        ["Escola Por Dentro", "#FEE57E"]
-  ]
+    ["Exposição artística", "#B9EDC8"],
+    ["Ciência e filosofia", "#A8C6C3"],
+    ["Eventos", "#E4C9A2"],
+    ["Notícia", "#B9E8ED"],
+    ["Pesquisa e estatística", "#FFA8B3"],
+    ["Artigo de opinião", "#E6B9ED"],
+    ["Aula de campo", "#A8C6FF"],
+    ["Contos e crônicas", "#E1EDB9"],
+    ["Escola Por Dentro", "#FEE57E"],
+  ];
 
   useEffect(() => {
     fetch("https://opomboapi.vercel.app/db/posts.json")
@@ -69,7 +68,10 @@ const Home = () => {
                   borderColor: tt[0] === actTag ? tt[1] : "#ccc",
                 }}
                 className="home-tab-tag-btn"
-                onClick={() => {setActTag(tt[0]); setDropdown(false)}}
+                onClick={() => {
+                  setActTag(tt[0]);
+                  setDropdown(false);
+                }}
               >
                 {tt[0]}
               </Tab>

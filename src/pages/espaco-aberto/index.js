@@ -24,7 +24,9 @@ const EspacoAberto = () => {
       </Container>
       <div className="project-list">
         {projects &&
-          projects.map((project) => <Card post={project} isProject={true} />)}
+          projects.map((project, index) => (
+            <Card post={project} isProject={true} key={index} />
+          ))}
       </div>
       <Loading visible={projects.length === 0 ? true : false} />
     </>

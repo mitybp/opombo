@@ -149,7 +149,7 @@ export const BioContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 10% 0;
+  margin: 5% 0;
 `;
 export const BioDivisor = styled.div`
   margin: 40px;
@@ -235,12 +235,35 @@ export const PostInfo =
     margin-inline: 20%;
     font-size: 16px;
 
+    &.flex-buttons{
+      display: flex;
+      margin-top: 4px;
+      gap: 4px;
+    }
+    &.flex{
+      width: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      button{
+        width: 30px;
+        height: 30px;
+        border: 1px solid #ccc;
+        outline: none;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
     @media (max-width: 550px) {
       margin-inline: 14px;
     }
   `;
 export const PostCredit = styled.p`
   padding: 2px 0;
+  margin-left: 10px;
 `;
 export const PostSpeechButton = styled.div`
   display: flex;

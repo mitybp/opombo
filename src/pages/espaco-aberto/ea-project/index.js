@@ -7,7 +7,7 @@ import { strFormat } from "../../../api/strFormat";
 
 const EspacoAbertoProject = () => {
   const { projectName } = useParams();
-  const [ project, setProject ] = useState(null);
+  const [project, setProject] = useState(null);
 
   useEffect(() => {
     fetch("https://opomboapi.vercel.app/db/espaco-aberto.json")
@@ -22,7 +22,9 @@ const EspacoAbertoProject = () => {
   });
 
   // console.error = console.warn = () => {};
-  document.title = project?`${project.name}, ${project.class} - Espaço Aberto - Jornal O Pombo`:"";
+  document.title = project
+    ? `${project.name}, ${project.class} - Espaço Aberto - Jornal O Pombo`
+    : "";
   return (
     <>
       {project && (
@@ -36,7 +38,7 @@ const EspacoAbertoProject = () => {
             {project.posts &&
               project.posts.map((post) => (
                 <Card
-                  post={{...post, name: project.name}}
+                  post={{ ...post, name: project.name }}
                   isProject={true}
                   isProjectPost={true}
                   key={post.id}
