@@ -32,7 +32,7 @@ const EspacoAbertoProject = () => {
           <Container>
             <a href="/espaco-aberto">Espaço Aberto</a>
             <h1>{project.name}</h1>
-            <p>{project.class}</p>
+            <p>{project.class} ・ {project.description}</p>
           </Container>
           <div className="project-list">
             {project.posts &&
