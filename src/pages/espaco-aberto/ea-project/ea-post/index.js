@@ -44,8 +44,8 @@ const EspacoAbertoClassPost = () => {
             </PostInfo>
           </PostHeader>
           <Container>
-            {post.content.map((p, i) => (
-              <p key={i} className="content-p">
+            {post.content.map((p, index) => (
+              <p key={index} className="content-p">
                 {p}
               </p>
             ))}

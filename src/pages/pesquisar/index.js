@@ -40,9 +40,9 @@ const Search = () => {
       </Container>
       <CardList>
         {inp
-          ? posts.map((p) => {
+          ? posts.map((p, index) => {
               if (p.title.toLowerCase().includes(inp.toLowerCase())) {
-                return <Card post={p} key={p.id} />;
+                return <Card post={p} key={index} />;
               }
             })
           : "Digite algo para pesquisar"}

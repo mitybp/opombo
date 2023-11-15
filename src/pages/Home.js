@@ -59,10 +59,10 @@ const Home = () => {
           }}
           className="home-tab-tags-list"
         >
-          {colorTags.map((tt) => {
+          {colorTags.map((tt, index) => {
             return (
               <Tab
-                key={tt[0]}
+                key={index}
                 style={{
                   backgroundColor: tt[0] === actTag ? tt[1] : "#fff",
                   borderColor: tt[0] === actTag ? tt[1] : "#ccc",
@@ -79,17 +79,17 @@ const Home = () => {
           })}
         </TabList>
         <TabPanel key={0} className="home-card-list">
-          {posts.map((p) => (
-            <Card key={p.id} post={p} />
+          {posts.map((p, index) => (
+            <Card key={index} post={p} />
           ))}
         </TabPanel>
         {tags.map((tt) => {
           return (
             <TabPanel key={tags.indexOf(tt) + 1} className="home-card-list">
               {tt.ids
-                .map((id) => (
+                .map((id, index) => (
                   <Card
-                    key={id}
+                    key={index}
                     post={posts[0].id === 0 ? posts[id] : posts.reverse()[id]}
                   />
                 ))

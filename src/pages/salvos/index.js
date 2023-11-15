@@ -31,7 +31,7 @@ const Saved = () => {
         {saved.length == 0 ? (
           <p>Você não salvou algo ainda!</p>
         ) : (
-          saved.map((id) => <Card post={posts[id]} key={id} />)
+          saved.map((id, index) => <Card post={posts[id]} key={index} />)
         )}
       </CardList>
       <Loading visible={posts.length === 0 ? true : false} />

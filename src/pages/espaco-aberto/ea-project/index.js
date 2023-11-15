@@ -36,12 +36,12 @@ const EspacoAbertoProject = () => {
           </Container>
           <div className="project-list">
             {project.posts &&
-              project.posts.map((post) => (
+              project.posts.map((post, index) => (
                 <Card
                   post={{ ...post, name: project.name }}
                   isProject={true}
                   isProjectPost={true}
-                  key={post.id}
+                  key={index}
                 />
               ))}
           </div>
