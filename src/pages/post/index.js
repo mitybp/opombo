@@ -103,11 +103,11 @@ const Post = () => {
               {tagUpper[data.tag]}
             </PostTag>
             <PostTitle>{data.title}</PostTitle>
-            <PostInfo>
-              {data.author} ・ {data.date} ・ {minuteRead} min. de leitura
-            </PostInfo>
-            <PostInfo className="flex-buttons">
-              <button onClick={setPostSave} className="savePost">
+            <PostInfo className="flex">
+              <p>
+                {data.author} ・ {data.date} ・ {minuteRead} min. de leitura
+              </p>
+              <button onClick={setPostSave}>
                 <BookmarkSimple
                   weight={
                     JSON.parse(localStorage.getItem("saved")).includes(data.id)
@@ -116,6 +116,8 @@ const Post = () => {
                   }
                 />
               </button>
+            </PostInfo>
+            <PostInfo className="flex-buttons">
               <Text2Speech
                 text={data.title + ", por" + data.author + ". " + data.content}
               />

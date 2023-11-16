@@ -234,31 +234,28 @@ export const PostInfo =
   styled.p`
     margin-inline: 20%;
     font-size: 16px;
-    width: 100%;
+    width: auto;
 
     &.flex-buttons{
       display: flex;
       margin-top: 4px;
       gap: 4px;
-      button, div button{
-        font-size: 18px;
-      }
-      button.savePost{
-        width: 35px;
-        height: 35px;
-        border: 1px solid #ccc;
-        outline: none;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
     }
     &.flex{
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 10px;
+      button{
+        width: 30px;
+        height: 30px;
+        border: 1px solid #ccc;
+        outline: none;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
     @media (max-width: 550px) {
       margin-inline: 14px;
