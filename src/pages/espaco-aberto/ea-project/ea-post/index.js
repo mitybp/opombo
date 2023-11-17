@@ -23,7 +23,7 @@ const EspacoAbertoClassPost = () => {
           if (dataName == projectName) {
             p.posts.map((dataPost) => {
               if (strFormat(dataPost.title) === postTitle) {
-                setPost(dataPost);
+                setPost({...dataPost, project_name: p.name});
               }
             });
           }
@@ -40,7 +40,7 @@ const EspacoAbertoClassPost = () => {
           <PostHeader>
             <PostTitle>{post.title}</PostTitle>
             <PostInfo>
-              {post.author} ・ {post.date}
+              <a href={`/espaco-aberto/${projectName}`}>{post.project_name}</a> ・ {post.author} ・ {post.date}
             </PostInfo>
           </PostHeader>
           <Container>
