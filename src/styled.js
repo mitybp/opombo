@@ -445,6 +445,16 @@ export const HeaderMenuLink = styled.a`
   text-decoration: none;
 `;
 
+export const HeaderBackButton = styled.button`
+  position: fixed;
+  inset: 0;
+  background-color: #ffffff55;
+  backdrop-filter: blur(5px);
+  border: none;
+  outline: none;
+  cursor: pointer;
+`
+
 //* Loading
 export const LoadingContainer = styled.div`
   position: fixed;

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Bookmarks, List, MagnifyingGlass, X } from "@phosphor-icons/react";
-import { HeaderContainer, HeaderLogo, HeaderMenuButton, HeaderMenuContent, HeaderMenuLink } from "../styled";
+import { HeaderContainer, HeaderLogo, HeaderMenuButton, HeaderMenuContent, HeaderMenuLink, HeaderBackButton } from "../styled";
 
 const Header = () => {
   const [ddState, setDdState] = useState(false);
@@ -57,6 +57,7 @@ const Header = () => {
           </HeaderMenuLink>
         </HeaderMenuContent>
       </div>
+        <HeaderBackButton style={{display: ddState?"block":"none"}} onClick={()=>setDdState(false)}/>
     </HeaderContainer>
   );
 };

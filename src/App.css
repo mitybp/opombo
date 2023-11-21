@@ -104,7 +104,7 @@ details{
 
 .home-tab-tags-list{
   position: absolute;
-  z-index: 999;
+  z-index: 500;
   padding: 14px;
   border: 1px solid #ccc;
   background-color: #fff;
