@@ -49,7 +49,7 @@ const Card = ({ post, isProject, isProjectPost }) => {
               {post.title}
             </a>
             <div>
-              <p className="infos">{post.author} ・ {post.date}</p>
+              <p className="infos">{post.name} ・ {post.date}</p>
             </div>
           </CardContainer>
         );
