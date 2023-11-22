@@ -32,7 +32,9 @@ const Home = () => {
           data["posts"][0].id === 0 ? data["posts"].reverse() : data["posts"]
         );
         setTags(data["tags"]);
-      });
+      }).catch(()=>{
+        console.log("[home] failed to fetch `posts.json`")
+      })
   });
 
   console.error = console.warn = () => {};

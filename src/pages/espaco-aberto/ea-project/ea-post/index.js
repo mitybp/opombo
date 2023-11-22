@@ -40,7 +40,7 @@ const EspacoAbertoClassPost = () => {
           <PostHeader>
             <PostTitle>{post.title}</PostTitle>
             <PostInfo>
-              <a href={`/espaco-aberto/${projectName}`}>{post.project_name}</a> ・ {post.author} ・ {post.date}
+              <a href={`/espaco-aberto/${projectName}`}>{post.project_name}</a> ・ {post.date}
             </PostInfo>
           </PostHeader>
           <Container>
