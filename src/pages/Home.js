@@ -12,7 +12,7 @@ const Home = () => {
   const [dropdown, setDropdown] = useState(false);
 
   const colorTags = [
-    ["Todas", "#ccc"],
+    ["Todas", "#F4F4F4"],
     ["Exposição artística", "#B9EDC8"],
     ["Ciência e filosofia", "#A8C6C3"],
     ["Eventos", "#E4C9A2"],
