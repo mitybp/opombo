@@ -447,6 +447,7 @@ export const HeaderMenuLink = styled.a`
 
 export const HeaderBackButton = styled.button`
   position: fixed;
+  z-index: 800;
   inset: 0;
   background-color: #ffffff55;
   backdrop-filter: blur(5px);
