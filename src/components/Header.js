@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { Bookmarks, List, MagnifyingGlass, X } from "@phosphor-icons/react";
-import { HeaderContainer, HeaderLogo, HeaderMenuButton, HeaderMenuContent, HeaderMenuLink, HeaderBackButton } from "../styled";
+import {
+  HeaderContainer,
+  HeaderLogo,
+  HeaderMenuButton,
+  HeaderMenuContent,
+  HeaderMenuLink,
+  HeaderBackButton,
+} from "../styled";
 
 const Header = () => {
   const [ddState, setDdState] = useState(false);
@@ -12,17 +19,16 @@ const Header = () => {
           style={{ width: 40 }}
           alt="logo"
         />
-        <span>
-          O Pombo
-        </span>
+        <span>O Pombo</span>
       </HeaderLogo>
       <div>
-        <HeaderMenuButton style={{marginRight: 4}} onClick={()=>document.location.pathname="/pesquisar"}>
+        <HeaderMenuButton
+          style={{ marginRight: 4 }}
+          onClick={() => (document.location.pathname = "/pesquisar")}
+        >
           <MagnifyingGlass style={{ transform: "translateY(2px)" }} />
         </HeaderMenuButton>
-        <HeaderMenuButton
-          onClick={() => setDdState(!ddState)}
-        >
+        <HeaderMenuButton onClick={() => setDdState(!ddState)}>
           {ddState ? (
             <X style={{ transform: "translateY(2px)" }} />
           ) : (
@@ -34,15 +40,9 @@ const Header = () => {
             transform: ddState ? "translateX(0)" : "translateX(1000px)",
           }}
         >
-          <HeaderMenuLink href="/sobre">
-            Sobre nós
-          </HeaderMenuLink>
-          <HeaderMenuLink href="/salvos">
-            Matérias salvas
-          </HeaderMenuLink>
-          <HeaderMenuLink href="/espaco-aberto">
-            Espaço Aberto
-          </HeaderMenuLink>
+          <HeaderMenuLink href="/sobre">Sobre nós</HeaderMenuLink>
+          <HeaderMenuLink href="/salvos">Matérias salvas</HeaderMenuLink>
+          <HeaderMenuLink href="/espaco-aberto">Espaço Aberto</HeaderMenuLink>
           <HeaderMenuLink
             target="_blank"
             href="https://instagram.com/opombo.jornal"
@@ -57,7 +57,10 @@ const Header = () => {
           </HeaderMenuLink>
         </HeaderMenuContent>
       </div>
-        <HeaderBackButton style={{display: ddState?"block":"none"}} onClick={()=>setDdState(false)}/>
+      <HeaderBackButton
+        style={{ display: ddState ? "block" : "none" }}
+        onClick={() => setDdState(false)}
+      />
     </HeaderContainer>
   );
 };
