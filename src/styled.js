@@ -448,15 +448,16 @@ export const HeaderMenuLink = styled.a`
 export const HeaderBackButton = styled.button`
   position: fixed;
   z-index: 800;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  inset: 0;
+  display: none;
   background-color: #ffffff55;
   backdrop-filter: blur(5px);
   border: none;
   outline: none;
   cursor: pointer;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 `
 
 //* Loading
