@@ -21,7 +21,7 @@ const Home = () => {
     ["Artigo de opinião", "#E6B9ED"],
     ["Aula de campo", "#A8C6FF"],
     ["Contos e crônicas", "#E1EDB9"],
-    ["Escola Por Dentro", "#FEE57E"]
+    ["Escola Por Dentro", "#FEE57E"],
   ];
 
   useEffect(() => {
@@ -29,15 +29,22 @@ const Home = () => {
       .then((res) => res.json())
       .then((data) => {
         setPosts(
-          data["posts"][0].id === 0 ? data["posts"].reverse() : data["posts"]
+          data.posts[0].id === 0 ? data.posts.reverse() : data.posts
         );
-        setTags(data["tags"]);
-      }).catch(()=>{
-        console.log("[home] failed to fetch `posts.json`")
-      })
+        setTags(data.tags);
+
+        let localPosts = JSON.stringify(data.posts[0].id === 0 ? data.posts.reverse() : data.posts)
+        let localTags = JSON.stringify(data.tags);
+        
+        if(localStorage.getItem("fetchDate")!==Date.now()){
+          localStorage.setItem("fetchDate", Date.now());
+          localStorage.setItem("fetchPosts", localPosts);
+          localStorage.setItem("fetchTags", localTags);
+        }
+      });
   });
 
-  console.error = console.warn = () => {};
+  console.error = console.warn = console.info = () => {};
   document.title = "Jornal O Pombo";
 
   return (

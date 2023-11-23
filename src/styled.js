@@ -71,7 +71,7 @@ export const CardContainer = styled.div`
     }
 
     @media (max-width: 400px) {
-      font-size: 22px;
+      font-size: 18px;
     }
   }
   div {
@@ -182,6 +182,7 @@ export const HomeDropdownButton = styled.button`
   font-size: 15px;
   padding: 0 10px;
   cursor: pointer;
+  transition: 0.2s ease-in-out all;
   span {
     display: flex;
     align-items: center;
@@ -384,6 +385,19 @@ export const HeaderContainer = styled.div`
   border-bottom: 1px solid #ccc;
   padding: 0 40px;
 
+  div.menuButtons{
+    position: fixed;
+    right: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    z-index: 999;
+    @media (max-width: 500px) {
+      right: 10px;
+    }
+  }
+
   @media (max-width: 500px) {
     padding: 0 10px;
   }
@@ -416,10 +430,23 @@ export const HeaderMenuButton = styled.button`
   border-radius: 4px;
   border: 1px solid #ccc;
   font-size: 16px;
+  &.searchIcon{
+    width: auto;
+    padding-inline: 10px;
+    span{
+      padding-left: 6px;
+    }
+    @media (max-width: 500px) {
+      width: 35px;
+      span{
+        display: none;
+      }
+    }
+  }
 `;
 export const HeaderMenuContent = styled.div`
   position: absolute;
-  top: 70px;
+  top: 50px;
   right: 35px;
   width: 18rem;
   background-color: #f4f4f4;

@@ -14,8 +14,7 @@ import EspacoAbertoProjectPost from "./pages/espaco-aberto/ea-project/ea-post/in
 import Header from "./components/Header.js";
 
 function App() {
-  if (localStorage.getItem("saved") == null)
-    localStorage.setItem("saved", "[]");
+  if (localStorage.getItem("saved") == null) localStorage.setItem("saved", "[]");
 
   return (
     <>

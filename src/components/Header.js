@@ -21,42 +21,46 @@ const Header = () => {
         />
         <span>O Pombo</span>
       </HeaderLogo>
-      <div>
+      <div className="menuButtons">
         <HeaderMenuButton
-          style={{ marginRight: 4 }}
           onClick={() => (document.location.pathname = "/pesquisar")}
+          className="searchIcon"
         >
           <MagnifyingGlass style={{ transform: "translateY(2px)" }} />
+          <span>Pesquisar</span>
         </HeaderMenuButton>
-        <HeaderMenuButton onClick={() => setDdState(!ddState)}>
+        <HeaderMenuButton
+          onClick={() => setDdState(!ddState)}
+          className="close-button"
+        >
           {ddState ? (
             <X style={{ transform: "translateY(2px)" }} />
           ) : (
             <List style={{ transform: "translateY(2px)" }} />
           )}
         </HeaderMenuButton>
-        <HeaderMenuContent
-          style={{
-            transform: ddState ? "translateX(0)" : "translateX(1000px)",
-          }}
-        >
-          <HeaderMenuLink href="/sobre">Sobre nós</HeaderMenuLink>
-          <HeaderMenuLink href="/salvos">Matérias salvas</HeaderMenuLink>
-          <HeaderMenuLink href="/espaco-aberto">Espaço Aberto</HeaderMenuLink>
-          <HeaderMenuLink
-            target="_blank"
-            href="https://instagram.com/opombo.jornal"
-          >
-            Instagram
-          </HeaderMenuLink>
-          <HeaderMenuLink
-            target="_blank"
-            href="https://youtube.com/@opombojornal"
-          >
-            Podcast
-          </HeaderMenuLink>
-        </HeaderMenuContent>
       </div>
+      <HeaderMenuContent
+        style={{
+          transform: ddState ? "translateX(0)" : "translateX(1000px)",
+        }}
+      >
+        <HeaderMenuLink href="/sobre">Sobre nós</HeaderMenuLink>
+        <HeaderMenuLink href="/salvos">Matérias salvas</HeaderMenuLink>
+        <HeaderMenuLink href="/espaco-aberto">Espaço Aberto</HeaderMenuLink>
+        <HeaderMenuLink
+          target="_blank"
+          href="https://instagram.com/opombo.jornal"
+        >
+          Instagram
+        </HeaderMenuLink>
+        <HeaderMenuLink
+          target="_blank"
+          href="https://youtube.com/@opombojornal"
+        >
+          Podcast
+        </HeaderMenuLink>
+      </HeaderMenuContent>
       <HeaderBackButton
         style={{ display: ddState ? "block" : "none" }}
         onClick={() => setDdState(false)}

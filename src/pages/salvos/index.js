@@ -29,7 +29,7 @@ const Saved = () => {
       </Container>
       <CardList>
         {saved.length == 0 ? (
-          <p>Você não salvou algo ainda!</p>
+          <p>Você não salvou nenhuma matéria ainda!</p>
         ) : (
           saved.map((id, index) => <Card post={posts[id]} key={index} />)
         )}
