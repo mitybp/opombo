@@ -32,15 +32,6 @@ const Home = () => {
           data.posts[0].id === 0 ? data.posts.reverse() : data.posts
         );
         setTags(data.tags);
-
-        let localPosts = JSON.stringify(data.posts[0].id === 0 ? data.posts.reverse() : data.posts)
-        let localTags = JSON.stringify(data.tags);
-        
-        if(localStorage.getItem("fetchDate")!==Date.now()){
-          localStorage.setItem("fetchDate", Date.now());
-          localStorage.setItem("fetchPosts", localPosts);
-          localStorage.setItem("fetchTags", localTags);
-        }
       });
   });
 
